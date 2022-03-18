@@ -325,3 +325,59 @@ footer .copyright {
     width: 100%;
     text-align: center;
 }
+
+/* Submit property page*/
+
+/* Submit property hero section */
+
+.submit_hero {
+    background-image: url("../img/hero_submit.jpg");
+    height: 50vh;
+    width: 80;
+    background-size: cover;
+    background-position: top 25% right 0;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.submit_hero h1{
+    color: #088178;
+    text-shadow: 0 0 3px #000, 0 0 5px #ffffff;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* form */
+#form {
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+    border-radius: 3px;
+    padding: 1em;
+}
+
+.form-form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.form-form label {
+   font-size: 25px;
+}
+
+.form-form input {
+    
+    height: 50px;
+    width: 150px;
+}

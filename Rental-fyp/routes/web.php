@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Frontend/addProperty');
+    return view('Frontend/submit_property');
 });
 
 Route::get('/dashboard', function () {
