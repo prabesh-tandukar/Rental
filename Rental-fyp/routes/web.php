@@ -17,6 +17,10 @@ use App\Http\Controllers\PropertyController;
 Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
 Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
 
+Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
+Route::get('property-detail', [PropertyController::class, 'detail'])->name('property.detail');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

@@ -96,4 +96,12 @@ class PropertyController extends Controller
     {
         //
     }
+
+    public function catelog() {
+        return view('Frontend/property');
+    }
+
+    public function detail() {
+        return view('Frontend/property-detail');
+    }
 }
