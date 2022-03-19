@@ -11,13 +11,11 @@
     </header>
     {{-- {{route('property.create')}} --}}
     <section id="form">
-      <form action="" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('property.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
-        
           <div class="form-group">
             <label class="form-label" for="property_title">Property title:</label>
-            <input type="text" class="form-control" name="property_title" id="property_tile" value="{{ old('property_tite') }}" placeholder="Enter Property Title">
+            <input type="text" class="form-control" name="property_title" id="property_title" value="{{ old('property_tite') }}" placeholder="Enter Property Title">
           @if ($errors->has('property_title'))
           <div class="alert alert-danger">{{ $errors->first('property_title') }}</div>
           @endif
@@ -38,15 +36,15 @@
        
         <div class="form-group">
           <label for="property_category">Property Category:</label>
-            <input type="radio" class="form-control" name="property_category" id="room">
+            <input type="radio" class="form-control" name="property_category" id="room" value="room">
             <label for="room">Room</label>
-            <input type="radio" class="form-control" name="property_category" id="flat">
+            <input type="radio" class="form-control" name="property_category" id="flat" value="flat">
             <label for="flat">Flat</label>
-            <input type="radio" class="form-control" name="property_category" id="apartment">
+            <input type="radio" class="form-control" name="property_category" id="apartment" value="apartment">
             <label for="apartment">Apartment</label>
-            <input type="radio" class="form-control" name="property_category" id="office_space">
+            <input type="radio" class="form-control" name="property_category" id="office_space" value="office_space">
             <label for="office_space">Office Space</label>
-            <input type="radio" class="form-control" name="property_category" id="buisness_space">
+            <input type="radio" class="form-control" name="property_category" id="buisness_space" value="buisness_space">
             <label for="business_space">Business Sapce</label>
             
             @if ($errors->has('name'))
@@ -76,7 +74,7 @@
         <div class="form-group">
           <label for="distance">Distance from main road:</label>
           <input type="text" id="distance" name="distance">
-          <select name="road_size_unit" id="">
+          <select name="distance_unit" id="">
             <option value="feet">feet</option>
             <option value="meter">meter</option>
           </select>
@@ -84,43 +82,103 @@
 
         <div class="form-group">
             <label for="building_detail">Building Details :</label>
-            <input type="text" class="form-control" name="build_year" id="building_detail" value="{{ old('name') }}" placeholder="Enter Built Year">
+            <input type="text" class="form-control" name="built_year" id="building_detail" placeholder="Enter Built Year">
           @if ($errors->has('name'))
           <div class="alert alert-danger">{{ $errors->first('name') }}</div>
           @endif
         </div>
 
         <div class="form-group">
-            <label for="name">Bedroom:</label>
-            <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" placeholder="Enter Property Title">
+            <label for="bedroom">Bedroom:</label>
+            <select name="bedroom" id="bedroom">
+              <option value="">--Select No.---</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
           @if ($errors->has('name'))
           <div class="alert alert-danger">{{ $errors->first('name') }}</div>
           @endif
         </div>
         <div class="form-group">
-          <label for="name">Kitchen:</label>
-          <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" placeholder="Enter Property Title">
+          <label for="kitchen">Kitchen:</label>
+          <select name="kitchen" id="kitchen">
+            <option value="">--Select No.---</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         @if ($errors->has('name'))
         <div class="alert alert-danger">{{ $errors->first('name') }}</div>
         @endif
       </div>
       <div class="form-group">
-        <label for="name">Bathroom:</label>
-        <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" placeholder="Enter Property Title">
+        <label for="bathroom">Bathroom:</label>
+        <select name="bathroom" id="bathroom">
+          <option value="">--Select No.---</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
       @if ($errors->has('name'))
       <div class="alert alert-danger">{{ $errors->first('name') }}</div>
       @endif
     </div>
     <div class="form-group">
-      <label for="name">Living Room:</label>
-      <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" placeholder="Enter Property Title">
+      <label for="livingroom">Living Room:</label>
+      <select name="livingroom" id="livingroom">
+        <option value="">--Select No.---</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
     @if ($errors->has('name'))
     <div class="alert alert-danger">{{ $errors->first('name') }}</div>
     @endif
   </div>
   <div class="form-group">
-    <label for="name">Parking:</label>
-    <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" placeholder="Enter Property Title">
+    <label for="parking">Parking:</label>
+    <select name="parking" id="parking">
+      <option value="">--Select No.---</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
   @if ($errors->has('name'))
   <div class="alert alert-danger">{{ $errors->first('name') }}</div>
   @endif
@@ -129,27 +187,27 @@
 <div class="form-group">
   <label for="amenities">Amenitites:</label>
           <label for="wifi">Wifi:</label>
-          <input type="radio" class="form-control" name="wifi" id="wifi">
+          <input type="checkbox" class="form-control" name="wifi" id="wifi" value="wifi">
           <label for="security">Security:</label>
-          <input type="radio" class="form-control" name="security" id="security">
+          <input type="checkbox" class="form-control" name="security" id="security" value="security">
           <label for="air_conditioner">Air Conditioner:</label>
-          <input type="radio" class="form-control" name="air_conditioner" id="air_conditioner">
+          <input type="checkbox" class="form-control" name="air_conditioner" id="air_conditioner" value="air_conditioner">
           <label for="water_supply">Water Supply:</label>
-          <input type="radio" class="form-control" name="water_supply" id="water_supply">
+          <input type="checkbox" class="form-control" name="water_supply" id="water_supply" value="water_supply">
           <label for="balcony">Balcony:</label>
-          <input type="radio" class="form-control" name="balcony" id="balcony">
+          <input type="checkbox" class="form-control" name="balcony" id="balcony" value="balcony">
           <label for="gym">Gym:</label>
-          <input type="radio" class="form-control" name="gym" id="gym">
+          <input type="checkbox" class="form-control" name="gym" id="gym" value="gym">
           <label for="swimming_pool">Swimming Pool:</label>
-          <input type="radio" class="form-control" name="swimming_pool" id="swimming_pool">
+          <input type="checkbox" class="form-control" name="swimming_pool" id="swimming_pool" value="swimming_pool">
           <label for="tv_cable">Tv Cable:</label>
-          <input type="radio" class="form-control" name="tv_cable" id="tv_cable">
+          <input type="checkbox" class="form-control" name="tv_cable" id="tv_cable" value="tv_cable">
           <label for="laundry">Laundry:</label>
-          <input type="radio" class="form-control" name="laundry" id="laundry">
+          <input type="checkbox" class="form-control" name="laundry" id="laundry" value="laundry">
           <label for="lift">Lift:</label>
-          <input type="radio" class="form-control" name="lift" id="lift">
+          <input type="checkbox" class="form-control" name="lift" id="lift" value="lift">
           <label for="solar">Solar:</label>
-          <input type="radio" class="form-control" name="solar" id="solar">
+          <input type="checkbox" class="form-control" name="solar" id="solar" value="solar">
   
 @if ($errors->has('name'))
 <div class="alert alert-danger">{{ $errors->first('name') }}</div>
@@ -168,7 +226,7 @@
 <div>
     <label for="price">Price</label>
     <input type="text" name="price" id="price" placeholder="Rs">
-    <select name="price" id="price">
+    <select name="price_unit" id="price">
       <option value=""></option>
       <option value="per_month">Per Month</option>
       <option value="per_annum">Per Annum</option>
@@ -177,17 +235,17 @@
 
 <div>
   <label for="negotiable">Negotiable</label>
-    <label for="yes">Yes</label>
-    <input type="radio" name="yes" id="yes">
+    <label for="negotiable">Yes</label>
+    <input type="radio" name="negotiable" id="negotiable" value="yes">
     <label for="no">No</label>
-    <input type="radio" name="no" id="no">
+    <input type="radio" name="negotiable" id="negotiable" value="yes">
 
 </div>
 
 <div>
   <label for="owner">Owner Information</label>
   <input type="text" name="owner_name" id="owner" placeholder="Enter Owner Name">
-  <input type="text" name="owner_email" id="owner" placeholder="Enter Owner Email">
+  <input type="email" name="owner_email" id="owner" placeholder="Enter Owner Email">
   <input type="text" name="owner_phone" id="owner" placeholder="Enter Owner Phone">
 </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Frontend/submit_property');
-});
+Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
+Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -29,3 +29,5 @@ Route::prefix('admin')->namespace('App\\Http\\Controllers')->group(function(){
     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('admin.dashboard');
 
 });
+
+// Route::get('/dashboard', ['Admin/AdminController::class'], 'dashboard')->name('admin.dashboard');
