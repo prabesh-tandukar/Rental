@@ -187,27 +187,27 @@
 <div class="form-group">
   <label for="amenities">Amenitites:</label>
           <label for="wifi">Wifi:</label>
-          <input type="checkbox" class="form-control" name="wifi" id="wifi" value="wifi">
+          <input type="checkbox" class="form-control" name="amenities[]" id="wifi" value="wifi">
           <label for="security">Security:</label>
-          <input type="checkbox" class="form-control" name="security" id="security" value="security">
+          <input type="checkbox" class="form-control" name="amenities[]" id="security" value="security">
           <label for="air_conditioner">Air Conditioner:</label>
-          <input type="checkbox" class="form-control" name="air_conditioner" id="air_conditioner" value="air_conditioner">
+          <input type="checkbox" class="form-control" name="amenities[]" id="air_conditioner" value="air_conditioner">
           <label for="water_supply">Water Supply:</label>
-          <input type="checkbox" class="form-control" name="water_supply" id="water_supply" value="water_supply">
+          <input type="checkbox" class="form-control" name="amenities[]" id="water_supply" value="water_supply">
           <label for="balcony">Balcony:</label>
-          <input type="checkbox" class="form-control" name="balcony" id="balcony" value="balcony">
+          <input type="checkbox" class="form-control" name="amenities[]" id="balcony" value="balcony">
           <label for="gym">Gym:</label>
-          <input type="checkbox" class="form-control" name="gym" id="gym" value="gym">
+          <input type="checkbox" class="form-control" name="amenities[]" id="gym" value="gym">
           <label for="swimming_pool">Swimming Pool:</label>
-          <input type="checkbox" class="form-control" name="swimming_pool" id="swimming_pool" value="swimming_pool">
+          <input type="checkbox" class="form-control" name="amenities[]" id="swimming_pool" value="swimming_pool">
           <label for="tv_cable">Tv Cable:</label>
-          <input type="checkbox" class="form-control" name="tv_cable" id="tv_cable" value="tv_cable">
+          <input type="checkbox" class="form-control" name="amenities[]" id="tv_cable" value="tv_cable">
           <label for="laundry">Laundry:</label>
-          <input type="checkbox" class="form-control" name="laundry" id="laundry" value="laundry">
+          <input type="checkbox" class="form-control" name="amenities[]" id="laundry" value="laundry">
           <label for="lift">Lift:</label>
-          <input type="checkbox" class="form-control" name="lift" id="lift" value="lift">
+          <input type="checkbox" class="form-control" name="amenities[]" id="lift" value="lift">
           <label for="solar">Solar:</label>
-          <input type="checkbox" class="form-control" name="solar" id="solar" value="solar">
+          <input type="checkbox" class="form-control" name="amenities[]" id="solar" value="solar">
   
 @if ($errors->has('name'))
 <div class="alert alert-danger">{{ $errors->first('name') }}</div>
@@ -251,15 +251,16 @@
 
 <div>
   <label for="location">Location</label>
-    <label for="yes">Yes</label>
-    <input type="radio" name="yes" id="yes">
-    <label for="no">No</label>
-    <input type="radio" name="no" id="no">
+    <label for="locatiopn">Yes</label>
+    <input type="radio" name="location" id="location" value="yes">
+    <label for="location">No</label>
+    <input type="radio" name="location" id="location" value="no">
 </div>
 
 <div>
   <label for="upload_image">Upload Image</label>
-  <input type="file">
+  <input type="file" name="upload_image" id="upload_image">
+  
 </div>
 <div>
   <button>Submit</button>

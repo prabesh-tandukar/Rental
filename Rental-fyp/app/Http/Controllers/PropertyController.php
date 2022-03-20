@@ -40,7 +40,13 @@ class PropertyController extends Controller
         if ($request->method()=='POST') 
         {
             $requestObj = app(PropertyRequest::class);
+            // $input['amenities'] = $requestObj->input('amenities');
             $validatedData = $requestObj->validated();
+            // dd($request);
+            $validatedData['amenities']= $requestObj->input('amenities');
+            // $imageName = time().'.'.request()->upload_image->getClientOriginalExtension();
+            // request()->upload_image->move(public_path('uploads/property-images'), $imageName);
+            // $validatedData['upload_image'] = $imageName;
             Property::create($validatedData);
             return redirect()->route('property.create')    
                              ->with(array('success'=>'Property added successfully.'));
