@@ -15,9 +15,9 @@ class CreatePropertyTable extends Migration
     {
         Schema::create('property', function (Blueprint $table) {
             $table->id();
-            $table->string('property_title');
-            $table->string('address');
-            $table->string('property_category');
+            $table->string('property_title')->nullable;
+            $table->string('address')->nullable();
+            $table->string('property_category')->nullable();
             $table->string('road_size')->nullable();
             $table->string('road_type')->nullabe();
             $table->string('distance')->nullabe();
@@ -29,7 +29,7 @@ class CreatePropertyTable extends Migration
             $table->string('livingroom')->nullable();
             $table->string('parking')->nullable();
             $table->string('amenities')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('price')->nullable();
             $table->string('price_unit')->nullable();
             $table->string('negotiable')->nullable();

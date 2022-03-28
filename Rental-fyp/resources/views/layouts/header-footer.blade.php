@@ -7,6 +7,7 @@
     <title>Rent</title>
     <script src="https://kit.fontawesome.com/afa7c81aed.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     
 </head>
 <body>
@@ -17,12 +18,13 @@
         <div>
             <ul id="navbar">
                 <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="">Catalog</a></li>
-                <li><a href="">Submit Property</a></li>
+                <li><a href="{{ route('property.catelog') }}">Catalog</a></li>
+                <li><a href="{{ route('property.create') }}">Submit Property</a></li>
                 <li><a href="about.html">Favorite</a></li>
-                <li><a href="contact.html">About</a></li>
+                <li><a href="{{ route('about-us') }}">About</a></li>
                 <li><a href="add.html"><i class="fa-solid fa-user"></i></a></li>
-                
+                {{-- {{route('service-detail',[app()->getLocale(), 'migrate'])}}
+                 --}}
             </ul>
         </div>
     </section>
@@ -75,6 +77,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
 </body>
 </html>

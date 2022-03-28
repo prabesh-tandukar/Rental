@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\AboutUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ Route::post('submit-property', [PropertyController::class, 'store'])->name('prop
 Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
 Route::get('property-detail', [PropertyController::class, 'detail'])->name('property.detail');
 
+Route::get('about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -359,7 +359,7 @@ footer .copyright {
 #form {
     display: flex;
     flex-direction: column;
-    background-color: beige;
+    /* background-color: beige; */
     border-radius: 3px;
     padding: 1em;
 }
