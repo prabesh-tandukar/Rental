@@ -38,34 +38,35 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
 
         if ($request->method()=='POST') 
         {
             $requestObj = app(PropertyRequest::class);
             
             $validatedData = $requestObj->validated();
-        
+            
+
             $validatedData['amenities']= $requestObj->input('amenities');
 
-            $image = array();
-            if($files = $request->file('upload_image')) {
-                foreach ($files as $file) {
-                    $image_name = md5(rand(1000, 10000));
-                    $ext = strtolower($file->getClientOriginalExtension());
-                    $image_full_name = $image_name. '.'.$ext;
-                    $upload_path = (public_path(). '/uploads');
-                    $image_url = ($upload_path.$image_full_name);
-                    $file->move($upload_path, $image_full_name);
-                    $image[] = $image_url;
+            $images = [];
+            if($request->hasfile('upload_image')) 
+            {
+                foreach ($request->file('upload_image') as $file) {
+                    $name = time().rand(1,50).'.'.$file->extension();
+                    $file->move(public_path('uploads/property-images'), $name);
+                    $images[] = $name;
                 }
             }
 
-            $validatedData['upload_images'] = implode('|', $image);
+            // $property = new Property();
+            // $property->upload_image = $images;
+            // $property->save();
 
-                Property::create($validatedData);
+            $validatedData['upload_image'] = $images;
 
-                
-                
+            Property::create($validatedData);
+
                 return redirect()->route('property.create')    
                              ->with(array('success'=>'Property added successfully.'));
             }

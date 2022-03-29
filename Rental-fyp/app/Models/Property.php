@@ -25,6 +25,11 @@ class Property extends Model
         return $this->attributes['amenities'] = json_decode($value);
     }
 
+    public function setUploadImageAttribute($value) 
+    {
+        $this->attributes['upload_image'] = json_encode($value);
+    }
+
     public function images()
 {
     return $this->hasMany('App\Images', 'property_id');

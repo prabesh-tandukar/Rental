@@ -15,12 +15,12 @@ class CreatePropertyTable extends Migration
     {
         Schema::create('property', function (Blueprint $table) {
             $table->id();
-            $table->string('property_title')->nullable;
+            $table->string('property_title')->nullable();
             $table->string('address')->nullable();
             $table->string('property_category')->nullable();
             $table->string('road_size')->nullable();
-            $table->string('road_type')->nullabe();
-            $table->string('distance')->nullabe();
+            $table->string('road_type')->nullable();
+            $table->string('distance')->nullable();
             $table->string('distance_unit')->nullable();
             $table->string('built_year')->nullable();
             $table->string('bedroom')->nullable();

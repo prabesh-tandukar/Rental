@@ -46,8 +46,8 @@ class PropertyRequest extends FormRequest
             'owner_email'=>'required',
             'owner_phone'=>'required',
             'location'=>'',
-            'upload_image'=>'',
-            // 'upload_image.*'=>'mimes:jpeg,jpg,png,gif,csv,txt,pdf|max:2048'
+            'upload_image'=>'required',
+            'upload_image.*'=>'image'
         ];
     }
 }
