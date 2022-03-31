@@ -38,7 +38,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        
 
         if ($request->method()=='POST') 
         {

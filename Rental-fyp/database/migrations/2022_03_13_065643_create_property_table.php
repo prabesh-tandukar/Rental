@@ -38,6 +38,8 @@ class CreatePropertyTable extends Migration
             $table->string('owner_phone')->nullable();
             $table->string('location')->nullable();
             $table->string('upload_image')->nullable();
+            $table->decimal('latitude', $precision = 9, $scale = 6)->nullable;
+            $table->decimal('longitude', $precision = 9, $scale = 6)->nullable;
             $table->timestamps();
         });
     }

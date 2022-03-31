@@ -274,6 +274,9 @@
     <input type="radio" name="location" id="location" value="yes">
     <label for="location">No</label>
     <input type="radio" name="location" id="location" value="no">
+    <input type="text" name="latitude" id="lat">
+    <input type="text" name="longitude" id="lng">
+    <div id="map" style="width: 400px; height: 400px;"></div>
 </div>
 
 <div class="mb-3">
@@ -286,7 +289,13 @@
     </form>
     </section>
 
-  
+    <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
+
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh_VUkJzFhwkfxlR8slOC9bSLOV8mZ9jw&callback=initMap&v=weekly"
+    async>
+
+    </script>
 
 @endsection
 

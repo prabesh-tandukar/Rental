@@ -47,7 +47,9 @@ class PropertyRequest extends FormRequest
             'owner_phone'=>'required',
             'location'=>'',
             'upload_image'=>'required',
-            'upload_image.*'=>'image'
+            'upload_image.*'=>'image',
+            'latitude'=>'',
+            'longitude'=>''
         ];
     }
 }
