@@ -3,14 +3,18 @@
 @section('content')
 
 
-<section class="submit_hero">
-  <h1 class="herotext">Submit Property</h1>  
-</section>
-    <header class="heading">
-      <h2>Fill in the form</h2>
-    </header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="herotext">Submit Property</h1>
+    </div>
+  </div>
+</div>
+    
+
     {{-- {{route('property.create')}} --}}
-    <section id="form">
+
+    <section class="submitform section-t8">
       <form action="{{ route('property.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
       
@@ -274,8 +278,8 @@
     <input type="radio" name="location" id="location" value="yes">
     <label for="location">No</label>
     <input type="radio" name="location" id="location" value="no">
-    <input type="text" name="latitude" id="lat">
-    <input type="text" name="longitude" id="lng">
+    <input type="hidden" name="latitude" id="lat">
+    <input type="hidden" name="longitude" id="lng">
     <div id="map" style="width: 400px; height: 400px;"></div>
 </div>
 
