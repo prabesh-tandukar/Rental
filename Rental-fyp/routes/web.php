@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\PropertyDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +17,13 @@ use App\Http\Controllers\AboutUsController;
 |
 */
 
+Route::get('/', [HomeController::class, 'home'])->name('homepage');
+
 Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
 Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
 
 Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
-Route::get('property-detail', [PropertyController::class, 'detail'])->name('property.detail');
+Route::get('property-detail/{id}', [PropertyDetailController::class, 'detail'])->name('property.detail');
 
 Route::get('about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
 

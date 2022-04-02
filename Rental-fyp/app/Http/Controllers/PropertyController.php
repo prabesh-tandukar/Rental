@@ -124,8 +124,5 @@ class PropertyController extends Controller
         return view('Frontend/property');
     }
 
-    public function detail() {
-        return view('Frontend/property-detail');
-    }
-
+    
 }
