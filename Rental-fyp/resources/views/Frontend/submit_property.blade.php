@@ -51,23 +51,23 @@
         <div class="mb-3">
           <label for="property_category" class="form-label">Property Category:</label>
           <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" name="property_category" id="room" value="room">
+            <input type="radio" class="form-check-input" name="property_category" id="room" value="Room">
             <label class="form-check-label" for="room">Room</label>
           </div>
           <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" name="property_category" id="flat" value="flat">
+            <input type="radio" class="form-check-input" name="property_category" id="flat" value="Flat">
             <label class="form-check-label" for="flat">Flat</label>
           </div>
           <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" name="property_category" id="apartment" value="apartment">
+            <input type="radio" class="form-check-input" name="property_category" id="apartment" value="Apartment">
             <label class="form-check-label" for="apartment">Apartment</label>
           </div>
           <div class="form-check form-check-inline">
             <label class="form-check-label" for="office_space">Office Space</label>
-            <input type="radio" class="form-check-input" name="property_category" id="office_space" value="office_space">
+            <input type="radio" class="form-check-input" name="property_category" id="office_space" value="Office Space">
           </div>
           <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" name="property_category" id="buisness_space" value="buisness_space">
+            <input type="radio" class="form-check-input" name="property_category" id="buisness_space" value="Buisness Space">
             <label class="form-check-label" for="business_space" >Business Sapce</label>
           </div>
             @if ($errors->has('name'))
@@ -280,7 +280,7 @@
     <input type="radio" name="location" id="location" value="no">
     <input type="hidden" name="latitude" id="lat">
     <input type="hidden" name="longitude" id="lng">
-    <div id="map" style="width: 400px; height: 400px;"></div>
+    <div id="map" style="width: 800px; height: 400px;"></div>
 </div>
 
 <div class="mb-3">

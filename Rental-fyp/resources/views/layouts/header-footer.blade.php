@@ -132,17 +132,17 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html">Rent<span class="color-b">Ghar</span></a>
+      <a class="navbar-brand text-brand" href="{{ route('homepage') }}">Rent<span class="color-b">Ghar</span></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
+            <a class="nav-link active" href="{{ route('homepage') }}">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="about.html">About</a>
+            <a class="nav-link " href="#">About</a>
           </li>
 
           <li class="nav-item">
@@ -150,10 +150,14 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="blog-grid.html">Blog</a>
+            <a class="nav-link " href="#">Catelog</a>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item">
+            <a class="nav-link " href="#">Map</a>
+          </li>
+
+          {{-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
             <div class="dropdown-menu">
               <a class="dropdown-item " href="property-single.html">Property Single</a>
@@ -161,7 +165,7 @@
               <a class="dropdown-item " href="agents-grid.html">Agents Grid</a>
               <a class="dropdown-item " href="agent-single.html">Agent Single</a>
             </div>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link " href="contact.html">Contact</a>
           </li>
@@ -190,17 +194,16 @@
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-                Enim minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip exea commodo consequat duis
-                sed aute irure.
+                RentGhar is a website where you can post your property that you want to rent out. Or you can search for properties to rent and settle in.
               </p>
             </div>
             <div class="w-footer-a">
               <ul class="list-unstyled">
                 <li class="color-a">
-                  <span class="color-text-a">Phone .</span> contact@example.com
+                  <span class="color-text-a">Phone .</span> +977 9803654317
                 </li>
                 <li class="color-a">
-                  <span class="color-text-a">Email .</span> +54 356 945234
+                  <span class="color-text-a">Email .</span> tandukarprabesh@gmail.com
                 </li>
               </ul>
             </div>
@@ -214,7 +217,7 @@
             <div class="w-body-a">
               <div class="w-body-a">
                 <ul class="list-unstyled">
-                  <li class="item-list-a">
+                  {{-- <li class="item-list-a">
                     <i class="bi bi-chevron-right"></i> <a href="#">Site Map</a>
                   </li>
                   <li class="item-list-a">
@@ -228,7 +231,7 @@
                   </li>
                   <li class="item-list-a">
                     <i class="bi bi-chevron-right"></i> <a href="#">Affiliate</a>
-                  </li>
+                  </li> --}}
                   <li class="item-list-a">
                     <i class="bi bi-chevron-right"></i> <a href="#">Privacy Policy</a>
                   </li>
@@ -240,27 +243,27 @@
         <div class="col-sm-12 col-md-4 section-md-t3">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">International sites</h3>
+              <h3 class="w-title-a text-brand">Quick Links</h3>
             </div>
             <div class="w-body-a">
               <ul class="list-unstyled">
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Venezuela</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">China</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">About</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Hong Kong</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Submit Property</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Argentina</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Catelog</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Singapore</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Map</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Philippines</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Contact</a>
                 </li>
               </ul>
             </div>
@@ -274,7 +277,7 @@
       <div class="row">
         <div class="col-md-12">
           <nav class="nav-footer">
-            <ul class="list-inline">
+            {{-- <ul class="list-inline">
               <li class="list-inline-item">
                 <a href="#">Home</a>
               </li>
@@ -290,7 +293,7 @@
               <li class="list-inline-item">
                 <a href="#">Contact</a>
               </li>
-            </ul>
+            </ul> --}}
           </nav>
           <div class="socials-a">
             <ul class="list-inline">

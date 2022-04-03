@@ -30,8 +30,17 @@ class Property extends Model
         $this->attributes['upload_image'] = json_encode($value);
     }
 
-    public function getPropertyById($propertyId) {
-        $property = Property::where('id', $propertyId)->first();
+  
+
+    public function getLatestProperty($type=false, $limit=4,$offset=0){
+        if($type)
+        return Property::type($type)->orderBy('created_at','DESC')->take($limit)->skip($offset)->paginate($limit);  
+      else
+          return Property::orderBy('created_at','DESC')->take($limit)->skip($offset)->paginate($limit);
+      }
+  
+    public function getPropertyByTitle($title) {
+        $property = Property::where('property_title', $title)->first();
         return $property;
     }
 }

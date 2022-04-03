@@ -23,7 +23,7 @@ Route::get('/submit-property', [PropertyController::class, 'create'])->name('pro
 Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
 
 Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
-Route::get('property-detail/{id}', [PropertyDetailController::class, 'detail'])->name('property.detail');
+Route::get('property-detail/{title}', [PropertyDetailController::class, 'detail'])->name('property.detail');
 
 Route::get('about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
 
