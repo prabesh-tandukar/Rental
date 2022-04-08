@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\PropertyDetailController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,8 @@ Route::post('submit-property', [PropertyController::class, 'store'])->name('prop
 Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
 Route::get('property-detail/{title}', [PropertyDetailController::class, 'detail'])->name('property.detail');
 
-Route::get('about-us', [AboutUsController::class, 'aboutUs'])->name('about-us');
+Route::get('about', [AboutUsController::class, 'about'])->name('about');
+Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

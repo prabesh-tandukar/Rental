@@ -265,6 +265,32 @@
 
   </main><!-- End #main -->
     
+  <script>
+        function initMap() {
+            //Map options
+            var options = {
+                zoom:8,
+                center:{lat:27.7172,lng:85.3240}
+            }
+            //new map
+            var map = new google.maps.Map(document.getElementById('map'), options);
+
+            //add marker
+            var marker = new google.maps.Marker({
+                position: {lat:27.7172,lng:85.3240},
+                map:map,
+                icon: ''
+            });
+
+            var infoWindow = new google.maps.InfoWindow({
+                content:'<h1>Kathmandu</h1>'
+            });
+
+            marker.addListener('click', function() {
+                infoWindow.open(map, marker);
+            }) 
+        }
+    </script>
 
   <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
 

@@ -21,9 +21,9 @@
           <div class="mb-3">
             <label class="form-label" for="property_title">Property title:</label>
             <input type="text" class="form-control" name="property_title" id="property_title" value="{{ old('property_tite') }}" placeholder="Enter Property Title">
-            @if ($errors->has('property_title'))
-            <div class="alert alert-danger">{{ $errors->first('property_title') }}</div>
-            @endif
+           @error('property_tile')
+              <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+           @enderror
           </div>
           
           <div class="mb-3">
@@ -40,12 +40,11 @@
                   <option value="bhaktapur">bhaktapur</option>
                 </select>
               </div>
+              @error('address')
+              <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+              @enderror
           </div>
-        
-            
-          @if ($errors->has('address'))
-          <div class="alert alert-danger">{{ $errors->first('address') }}</div>
-          @endif
+          
         </div>
        
         <div class="mb-3">
@@ -70,9 +69,9 @@
             <input type="radio" class="form-check-input" name="property_category" id="buisness_space" value="Buisness Space">
             <label class="form-check-label" for="business_space" >Business Sapce</label>
           </div>
-            @if ($errors->has('name'))
-            <div class="alert alert-danger">{{ $errors->first('name') }}</div>
-            @endif
+          @error('property_category')
+              <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+          @enderror
         </div>
 
         <div class="mb-3">
@@ -89,9 +88,9 @@
               <option value="blacktopped">Blacktopped</option>
               <option value="alley">Alley</option>
             </select>
-            @if ($errors->has('road_size'))
-            <div class="alert alert-danger">{{ $errors->first('road_size') }}</div>
-            @endif
+            @error('road_size') 
+                <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+            @enderror
         </div>
        
         <div class="mb-3">
@@ -101,14 +100,17 @@
             <option value="feet">feet</option>
             <option value="meter">meter</option>
           </select>
+          @error('distance')
+            <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+          @enderror
         </div>
 
         <div class="mb-3">
             <label for="building_detail">Building Details :</label>
             <input type="text" class="form-control" name="built_year" id="building_detail" placeholder="Enter Built Year">
-          @if ($errors->has('name'))
-          <div class="alert alert-danger">{{ $errors->first('name') }}</div>
-          @endif
+          @error('built_year')
+              <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+          @enderror
         </div>
 
         <div class="mb-3">
@@ -126,9 +128,9 @@
               <option value="9">9</option>
               <option value="10">10</option>
             </select>
-          @if ($errors->has('name'))
-          <div class="alert alert-danger">{{ $errors->first('name') }}</div>
-          @endif
+          @error('bedroom')
+              <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+          @enderror
         </div>
         <div class="mb-3">
           <label for="kitchen">Kitchen:</label>
@@ -145,9 +147,9 @@
             <option value="9">9</option>
             <option value="10">10</option>
           </select>
-        @if ($errors->has('name'))
-        <div class="alert alert-danger">{{ $errors->first('name') }}</div>
-        @endif
+        @error('kitchen')
+            <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+        @enderror
       </div>
       <div class="mb-3">
         <label for="bathroom">Bathroom:</label>
@@ -164,9 +166,9 @@
           <option value="9">9</option>
           <option value="10">10</option>
         </select>
-      @if ($errors->has('name'))
-      <div class="alert alert-danger">{{ $errors->first('name') }}</div>
-      @endif
+      @error('bathroom')
+          <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
+      @enderror
     </div>
     <div class="mb-3">
       <label for="livingroom">Living Room:</label>
