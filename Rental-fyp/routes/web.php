@@ -31,15 +31,15 @@ Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
 
-Route::prefix('admin')->namespace('App\\Http\\Controllers')->group(function(){
+// Route::prefix('admin')->namespace('App\\Http\\Controllers')->group(function(){
 
-    Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('admin.dashboard');
+//     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('admin.dashboard');
 
-});
+// });
 
 // Route::get('/dashboard', ['Admin/AdminController::class'], 'dashboard')->name('admin.dashboard');
