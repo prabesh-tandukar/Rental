@@ -129,11 +129,11 @@
   <!-- ======= Header/Navbar ======= -->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
     <div class="container">
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      {{-- <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
         <span></span>
         <span></span>
-      </button>
+      </button> --}}
       <a class="navbar-brand text-brand" href="{{ route('homepage') }}">Rent<span class="color-b">Ghar</span></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
@@ -168,24 +168,56 @@
               <a class="dropdown-item " href="agent-single.html">Agent Single</a>
             </div>
           </li> --}}
-          <li class="nav-item">
+          <li class="nav-item"> 
             <a class="nav-link " href="{{ route('contact') }}">Contact</a>
           </li>
+
+          
         </ul>
       </div>
 
-      <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
-        <i class="bi bi-search"></i>
-      </button>
+      <div id="navbarDefault">
+        
+        <ul  class="navbar-nav">
+          @auth
+          <li class="nav-item">
+            <a class="nav-link " href="{{ route('contact') }}">{{ Auth::user()->name }}</a>
+          </li>
+          <li class="nav-item">
+            {{-- <a class="nav-link " href="{{ route('logout') }}">LogOut</a> --}}
+            <form method="POST" action="/logout" class="nav-item">
+              @csrf
+              <Button type="submit">Log Out</Button>
+          </form>
+          </li>
+          @else 
+          <li class="nav-item">
+            <a class="nav-link " href="{{ route('login') }}">LogIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="{{ route('register') }}">Register</a>
+          </li>
+          @endguest
+        </ul>
+        
+      </div>
 
+      {{-- <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
+        <i class="bi bi-search"></i>
+      </button> --}}
+      
+     
     </div>
 
     <div class="hidden sm:flex sm:items-center sm:ml-6">
-      <x-dropdown align="right" width="48">
+      {{-- <x-dropdown align="right" width="48">
           <x-slot name="trigger">
               <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                  <div>{{ Auth::user()->name }}</div>
-
+                @Auth  
+                <div>{{ Auth::user()->name }}</div>
+                @else
+                    <div>Log In</div>
+                @endif
                   <div class="ml-1">
                       <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                           <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -206,7 +238,7 @@
                   </x-dropdown-link>
               </form>
           </x-slot>
-      </x-dropdown>
+      </x-dropdown> --}}
   </div>
   </nav><!-- End Header/Navbar -->
 
@@ -248,21 +280,6 @@
             <div class="w-body-a">
               <div class="w-body-a">
                 <ul class="list-unstyled">
-                  {{-- <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a href="#">Site Map</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a href="#">Legal</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a href="#">Agent Admin</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a href="#">Careers</a>
-                  </li>
-                  <li class="item-list-a">
-                    <i class="bi bi-chevron-right"></i> <a href="#">Affiliate</a>
-                  </li> --}}
                   <li class="item-list-a">
                     <i class="bi bi-chevron-right"></i> <a href="#">Privacy Policy</a>
                   </li>
@@ -308,23 +325,6 @@
       <div class="row">
         <div class="col-md-12">
           <nav class="nav-footer">
-            {{-- <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">Home</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">About</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Property</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Blog</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-            </ul> --}}
           </nav>
           <div class="socials-a">
             <ul class="list-inline">
