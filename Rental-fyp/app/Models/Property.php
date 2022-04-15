@@ -43,9 +43,14 @@ class Property extends Model
         $property = Property::where('property_title', $title)->first();
         return $property;
     }
+
+    public function getAll() {
+        $property =	Property::all();
+        return $property;
+    }
 }
 
 
 
-// 'property_title','address','property_category','road_size','road_type','distance','distance_unit','built_year','bedroom','kitchen','bathroom','livingroom','parking','amenities','description','price','price_unit','negotiable','owner_name','owner_email','owner_phone','location','upload_image'
+
 

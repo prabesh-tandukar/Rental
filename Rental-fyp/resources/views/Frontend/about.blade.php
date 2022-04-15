@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">We Do Great Design For Creative Folks</h1>
+            <h1 class="title-single">We Help You Find Your Perfect Home</h1>
           </div>
         </div>
         <div class="col-md-12 col-lg-4">
@@ -37,21 +37,21 @@
           <img src="{{ asset ("img/slide-about-1.jpg") }}" alt="" class="img-fluid">
           </div>
           <div class="sinse-box">
-            <h3 class="sinse-title">EstateAgency
+            <h3 class="sinse-title">RentGhar
               <span></span>
-              <br> Sinse 2017
+              <br> Since 2022
             </h3>
-            <p>Art & Creative</p>
+
           </div>
         </div>
         <div class="col-md-12 section-t8 position-relative">
           <div class="row">
             <div class="col-md-6 col-lg-5">
-              <img src="assets/img/about-2.jpg" alt="" class="img-fluid">
+            <img src="{{ asset ("img/about-2.jpg") }}" alt="" class="img-fluid">
             </div>
             <div class="col-lg-2  d-none d-lg-block position-relative">
               <div class="title-vertical d-flex justify-content-start">
-                <span>EstateAgency Exclusive Property</span>
+                <span>RentGhar Exclusive Property</span>
               </div>
             </div>
             <div class="col-md-6 col-lg-5 section-md-t3">
@@ -82,7 +82,7 @@
   </section>
 
   <!-- =======Team Section ======= -->
-  <section class="section-agents section-t8">
+  {{-- <section class="section-agents section-t8">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -274,7 +274,7 @@
         </div>
       </div>
     </div>
-  </section><!-- End About Section-->
+  </section><!-- End About Section--> --}}
 
 </main><!-- End #main -->
 

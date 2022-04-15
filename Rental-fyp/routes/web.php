@@ -6,6 +6,7 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\PropertyDetailController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', [HomeController::class, 'home'])->name('homepage');
+Route::get('/', [HomeController::class, 'home'])->middleware(['auth'])->name('homepage');
 
 Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
 Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
@@ -26,12 +27,15 @@ Route::post('submit-property', [PropertyController::class, 'store'])->name('prop
 Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
 Route::get('property-detail/{title}', [PropertyDetailController::class, 'detail'])->name('property.detail');
 
+Route::get('map', [MapController::class, 'map'])->name('map');
+
 Route::get('about', [AboutUsController::class, 'about'])->name('about');
 Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
 
 require __DIR__.'/auth.php';
 
