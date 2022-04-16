@@ -46,17 +46,16 @@ class TenantController extends Controller
         //     $validatedData = $requestObj->validated();
 
         //     Tenant::create($validatedData);
-        $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
-    
-        Product::create($request->all());
-     
-        return redirect()->route('products.index')
-                        ->with('success','Product created successfully.');
+        // $request->validate([
+        //     'name' => 'required',
+        //     'detail' => 'required',
+        // ]);
 
-            return redirect()->route('')->with(array('success' => 'Tenant added successfully.'));
-        }
+        // Product::create($request->all());
+
+        // return redirect()->route('products.index')
+        //                 ->with('success','Product created successfully.');
+
+        return redirect()->route('')->with(array('success' => 'Tenant added successfully.'));
     }
 }
