@@ -35,7 +35,7 @@
   <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
-  <div class="box-collapse">
+  {{-- <div class="box-collapse">
     <div class="title-box-d">
       <h3 class="title-d">Search Property</h3>
     </div>
@@ -124,16 +124,12 @@
         </div>
       </form>
     </div>
-  </div><!-- End Property Search Section -->>
+  </div><!-- End Property Search Section -->> --}}
 
   <!-- ======= Header/Navbar ======= -->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
     <div class="container">
-      {{-- <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button> --}}
+
       <a class="navbar-brand text-brand" href="{{ route('homepage') }}">Rent<span class="color-b">Ghar</span></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
@@ -181,14 +177,16 @@
         <ul  class="navbar-nav">
           @auth
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('contact') }}">{{ Auth::user()->name }}</a>
+            <a class="nav-link " href="{{ route('user.dashboard') }}">{{ Auth::user()->name }}</a>
           </li>
           <li class="nav-item">
-            {{-- <a class="nav-link " href="{{ route('logout') }}">LogOut</a> --}}
-            <form method="POST" action="/logout" class="nav-item">
-              @csrf
-              <Button type="submit">Log Out</Button>
-          </form>
+            <a href="" class="nav-link">
+              <form method="POST" action="/logout">
+                @csrf
+                <Button type="submit" >Log Out</Button>
+              </form>
+            </a>
+            
           </li>
           @else 
           <li class="nav-item">

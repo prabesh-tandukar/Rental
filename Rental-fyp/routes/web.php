@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'home'])->name('homepage');
+Route::get('/', [App\Http\Controllers\User\HomeController::class, 'index'])->name('homepage');
 
 Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
 Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
@@ -51,14 +51,29 @@ Route::group(['middleware' => 'auth'], function () {
         'prefix' => 'user',
         'as' => 'user.',
     ], function () {
+        Route::get('home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
         Route::get('property', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.index');
         Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
         Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
         Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
         Route::get('property-detail/{title}', [PropertyDetailController::class, 'detail'])->name('property.detail');
         Route::get('map', [MapController::class, 'map'])->name('map');
+        Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('tenant', [App\Http\Controllers\User\TenantController::class, 'index'])->name('tenant.index');
+        Route::get('tenant/create', [App\Http\Controllers\User\TenantController::class, 'create'])->name('tenant.create');
+        Route::post('tenant/create', [App\Http\Controllers\User\TenantController::class, 'store'])->name('tenant.store');
+        Route::get('tenant/edit', [App\Http\Controllers\User\TenantController::class, 'edit'])->name('tenant.edit');
     });
 });
+
+// Route::group([
+//     'prefix' => 'user',
+//     'as' => 'user.',
+// ], function () {
+//     Route::get('tenant/create', [App\Http\Controllers\User\TenantController::class, 'create'])->name('tenant.create');
+//     Route::post('tenant/create', [App\Http\Controllers\User\TenantController::class, 'store'])->name('tenant.store');
+// });
 
 
 require __DIR__ . '/auth.php';
