@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{ route('admin.home.index') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -22,7 +22,21 @@
             <i class="bi bi-card-text"></i>
           <span>Blog</span>
         </a>
-      </li><!-- End F.A.Q Page Nav -->
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-faq.html">
+            <i class="bi bi-card-text"></i>
+          <span>About Us</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-faq.html">
+            <i class="bi bi-card-text"></i>
+          <span>Contact Us</span>
+        </a>
+      </li>
 
       {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
