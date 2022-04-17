@@ -71,7 +71,7 @@
 
   <!-- ======= Sidebar ======= -->
 
-  <aside id="sidebar" class="sidebar pt-24">
+  {{-- <aside id="sidebar" class="sidebar pt-24">
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
         <a class="nav-link " href="{{ route("user.dashboard") }}">
@@ -290,8 +290,9 @@
 
     </ul>
 
-  </aside><!-- End Sidebar-->
+  </aside><!-- End Sidebar--> --}}
 
+  <x-sidebar/>
   <main id="main" class="main">
 
     <div class="pagetitle">

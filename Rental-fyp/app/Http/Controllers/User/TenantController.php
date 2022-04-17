@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Models\User;
-
+use JetBrains\PhpStorm\Internal\TentativeType;
 
 class TenantController extends Controller
 {
@@ -39,6 +39,8 @@ class TenantController extends Controller
 
     public function store(Request $request)
     {
+        $user = auth()->user()->id;
+        // dd($request->tenant_name);
 
         // $id = auth()->user()->user_id;
         // if ($request->method() == 'POST') {
@@ -46,16 +48,40 @@ class TenantController extends Controller
         //     $validatedData = $requestObj->validated();
 
         //     Tenant::create($validatedData);
-        // $request->validate([
-        //     'name' => 'required',
-        //     'detail' => 'required',
-        // ]);
+        $request->validate([
+            'tenant_name' => 'required',
+            'phone' => 'required',
+            'joining_date' => 'required',
+            'payment_timing' => 'required',
+            'rent' => 'required',
+            // 'user_id' => 'required',
+        ]);
 
-        // Product::create($request->all());
+        $tenant = new Tenant();
+        $tenant->tenant_name = $request->tenant_name;
+        $tenant->phone = $request->phone;
+        $tenant->joining_date = $request->joining_date;
+        $tenant->payment_timing = $request->payment_timing;
+        $tenant->rent = $request->rent;
+        $tenant->user_id = $user;
+        $tenant->save();
+        // Tenant::create($request->all());
 
         // return redirect()->route('products.index')
         //                 ->with('success','Product created successfully.');
 
-        return redirect()->route('')->with(array('success' => 'Tenant added successfully.'));
+        return redirect()->route('user.tenant.index')->with(array('success' => 'Tenant added successfully.'));
+    }
+
+    public function edit() {
+
+    }
+
+    public function update() {
+
+    }
+
+    public function destroy(){
+        
     }
 }

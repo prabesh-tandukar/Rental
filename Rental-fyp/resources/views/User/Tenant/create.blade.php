@@ -12,7 +12,7 @@
               <div class="col-md-3">
                   <div class="card" >
                     <div class="card-header">
-                      <h2 class="card-title">Add Coupon  </h2>
+                      <h2 class="card-title">Add Tenant  </h2>
       
                       <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
@@ -23,13 +23,13 @@
                       <ul class="nav nav-pills flex-column">
                         <li class="nav-item active">
                           <a href="{{ route('user.tenant.index') }}" class="nav-link ">
-                            <i class="fas fa-align-justify"></i> List  Coupons
+                            <i class="fas fa-align-justify"></i> List Tenants
                             <!-- <span class="badge bg-primary float-right">12</span> -->
                           </a>
                         </li>
                         <li class="nav-item">
                           <a href="{{ route('user.tenant.create') }}" class="nav-link">
-                            <i class="nav-icon fa fa-plus"></i> Create Coupon
+                            <i class="nav-icon fa fa-plus"></i> Create Tenants
                           </a>
                         </li>
                       
@@ -53,7 +53,6 @@
                                 <div class="form-group">
                                     <strong>Tenant Name:</strong>
                                     <input type="text" name="tenant_name" class="form-control" placeholder="Firstname Lastname">
-                                    
                                 </div>
                             </div>
 
@@ -96,12 +95,12 @@
                         </div>         
                             
                           <div class="form-group pb-3">      
-                            <label for="Save Method"> <strong>Payment Style:</strong>  </label>
+                            <label for="Save Method"> <strong>Payment Method:</strong>  </label>
                              <div class="form-group clearfix">
                                 <div class="icheck-primary d-inline">
-                                  <input type="radio" id="paymentStyle1" name="payment_timing"  value="montly" checked="checked">
+                                  <input type="radio" id="paymentStyle1" name="payment_timing"  value="monthly" checked="checked">
                                   <label for="paymentStyle1">
-                                  Montly
+                                  Monthly
                                   </label>
                                 </div>
                                 <div class="icheck-primary d-inline">
