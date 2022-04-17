@@ -224,7 +224,7 @@
                         <div class="price-box d-flex">
                           <span class="price-a">rent | Rs. {{ $property->price }}</span>
                         </div>
-                        <a href="{{ route('property.detail', [$property->property_title]) }}" class="link-a">Click here to view
+                        <a href="{{ route('user.property.detail', [$property->property_title]) }}" class="link-a">Click here to view
                           <span class="bi bi-chevron-right"></span>
                         </a>
                       </div>

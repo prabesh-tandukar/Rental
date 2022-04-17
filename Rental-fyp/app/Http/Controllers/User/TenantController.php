@@ -73,15 +73,15 @@ class TenantController extends Controller
         return redirect()->route('user.tenant.index')->with(array('success' => 'Tenant added successfully.'));
     }
 
-    public function edit() {
-
+    public function edit()
+    {
     }
 
-    public function update() {
-
+    public function update()
+    {
     }
 
-    public function destroy(){
-        
+    public function destroy()
+    {
     }
 }

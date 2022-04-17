@@ -22,16 +22,16 @@ use App\Http\Controllers\Admin\HomeController;
 
 Route::get('/', [App\Http\Controllers\User\HomeController::class, 'index'])->name('homepage');
 
-Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
-Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
+// Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
+// Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
 
-Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
-Route::get('property-detail/{title}', [PropertyDetailController::class, 'detail'])->name('property.detail');
+// Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
+// Route::get('property-detail/{title}', [PropertyDetailController::class, 'detail'])->name('property.detail');
 
-Route::get('map', [MapController::class, 'map'])->name('map');
+// Route::get('map', [MapController::class, 'map'])->name('map');
 
-Route::get('about', [AboutUsController::class, 'about'])->name('about');
-Route::get('contact', [ContactController::class, 'contact'])->name('contact');
+// Route::get('about', [AboutUsController::class, 'about'])->name('about');
+// Route::get('contact', [ContactController::class, 'contact'])->name('contact');
 
 // Route::get('/', function () {
 //     return view('dashboard');
@@ -53,12 +53,15 @@ Route::group(['middleware' => 'auth'], function () {
     ], function () {
         Route::get('home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
         Route::get('property', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.index');
-        Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
-        Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
-        Route::get('property-catelog', [PropertyController::class, 'catelog'])->name('property.catelog');
-        Route::get('property-detail/{title}', [PropertyDetailController::class, 'detail'])->name('property.detail');
-        Route::get('map', [MapController::class, 'map'])->name('map');
+        Route::get('/submit-property', [App\Http\Controllers\User\PropertyController::class, 'create'])->name('property.create');
+        Route::post('submit-property', [App\Http\Controllers\User\PropertyController::class, 'store'])->name('property.store');
+        Route::get('property-catelog', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.catelog');
+        Route::get('property-detail/{title}', [App\Http\Controllers\User\PropertyDetailController::class, 'detail'])->name('property.detail');
+        Route::get('map', [App\Http\Controllers\User\MapController::class, 'map'])->name('map');
         Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
+
+        Route::get('about', [App\Http\Controllers\User\AboutUsController::class, 'about'])->name('about');
+        Route::get('contact', [App\Http\Controllers\User\ContactController::class, 'contact'])->name('contact');
 
         Route::get('tenant', [App\Http\Controllers\User\TenantController::class, 'index'])->name('tenant.index');
         Route::get('tenant/create', [App\Http\Controllers\User\TenantController::class, 'create'])->name('tenant.create');

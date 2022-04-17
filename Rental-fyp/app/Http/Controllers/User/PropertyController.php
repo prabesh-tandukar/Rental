@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyRequest;
 use App\Models\Property;
+use App\Http\Controllers\Controller;
 use Image;
 use Storage;
 
@@ -17,7 +18,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        //
+        return view('User/Property/index');
     }
 
     /**
@@ -27,7 +28,7 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('Frontend/submit_property');
+        return view('User/Property/create');
     }
 
     /**
@@ -38,22 +39,20 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        
 
-        if ($request->method()=='POST') 
-        {
+
+        if ($request->method() == 'POST') {
             $requestObj = app(PropertyRequest::class);
-            
-            $validatedData = $requestObj->validated();
-            
 
-            $validatedData['amenities']= $requestObj->input('amenities');
+            $validatedData = $requestObj->validated();
+
+
+            $validatedData['amenities'] = $requestObj->input('amenities');
 
             $images = [];
-            if($request->hasfile('upload_image')) 
-            {
+            if ($request->hasfile('upload_image')) {
                 foreach ($request->file('upload_image') as $file) {
-                    $name = time().rand(1,50).'.'.$file->extension();
+                    $name = time() . rand(1, 50) . '.' . $file->extension();
                     $file->move(public_path('uploads/property-images'), $name);
                     $images[] = $name;
                 }
@@ -67,12 +66,12 @@ class PropertyController extends Controller
 
             Property::create($validatedData);
 
-                return redirect()->route('property.create')    
-                             ->with(array('success'=>'Property added successfully.'));
-            }
+            return redirect()->route('user.property.create')
+                ->with(array('success' => 'Property added successfully.'));
         }
-       
-    
+    }
+
+
 
 
     /**
@@ -120,9 +119,8 @@ class PropertyController extends Controller
         //
     }
 
-    public function catelog() {
+    public function catelog()
+    {
         return view('Frontend/property');
     }
-
-    
 }
