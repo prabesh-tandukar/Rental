@@ -32,36 +32,8 @@
 
 <body>
 
-  <!-- ======= Property Search Section ======= -->
+
   <div class="click-closed"></div>
-  <!--/ Form Search Star /-->
-  {{-- <div class="box-collapse">
-   
-    
-    <div class="box-collapse-wrap form">
-      @auth
-      <li class="nav-item ml-10 ">
-        <a class="nav-link " href="{{ route('user.dashboard') }}">{{ Auth::user()->name }}</a>
-      </li>
-      <li class="nav-item">
-        <a href="" class="nav-link">
-          <form method="POST" action="/logout">
-            @csrf
-            <Button type="submit" >Log Out</Button>
-          </form>
-        </a>
-        
-      </li>
-      @else 
-      <li class="nav-item">
-        <a class="nav-link " href="{{ route('login') }}">LogIn</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="{{ route('register') }}">Register</a>
-      </li>
-      @endguest
-    </div>
-  </div><!-- End Property Search Section --> --}}
 
   <!-- ======= Header/Navbar ======= -->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
@@ -89,7 +61,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.property.catelog') }}">Catelog</a>
+            <a class="nav-link " href="{{ route('user.property.catalog') }}">Catalog</a>
           </li>
 
           <li class="nav-item">

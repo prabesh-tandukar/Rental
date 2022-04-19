@@ -11,12 +11,5 @@ class Image extends Model
 
     protected $table = 'images';
 
-    protected $fillable = [
-        'url', 'property_id'
-    ];
-
-    public function product() {
-        return $this->belongTo('App\Property', 'property_id');
-    }
-
+    protected $guarded = [];
 }

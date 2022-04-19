@@ -55,8 +55,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('property', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.index');
         Route::get('/submit-property', [App\Http\Controllers\User\PropertyController::class, 'create'])->name('property.create');
         Route::post('submit-property', [App\Http\Controllers\User\PropertyController::class, 'store'])->name('property.store');
-        Route::get('property-catelog', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.catelog');
-        Route::get('property-detail/{title}', [App\Http\Controllers\User\PropertyDetailController::class, 'detail'])->name('property.detail');
+        Route::get('property-catalog', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.catalog');
+        Route::get('property-detail/{id}', [App\Http\Controllers\User\PropertyDetailController::class, 'index'])->name('property.detail');
         Route::get('map', [App\Http\Controllers\User\MapController::class, 'map'])->name('map');
         Route::get('dashboard', [App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
 

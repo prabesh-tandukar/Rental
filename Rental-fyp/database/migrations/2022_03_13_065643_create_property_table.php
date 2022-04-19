@@ -33,11 +33,8 @@ class CreatePropertyTable extends Migration
             $table->string('price')->nullable();
             $table->string('price_unit')->nullable();
             $table->string('negotiable')->nullable();
-            $table->string('owner_name')->nullable();
-            $table->string('owner_email')->nullable();
-            $table->string('owner_phone')->nullable();
             $table->string('location')->nullable();
-            $table->string('upload_image')->nullable();
+            $table->string('cover_image')->nullable();
             $table->decimal('latitude', $precision = 9, $scale = 6)->nullable();
             $table->decimal('longitude', $precision = 9, $scale = 6)->nullable();
             $table->timestamps();

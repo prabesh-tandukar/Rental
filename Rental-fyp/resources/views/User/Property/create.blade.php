@@ -397,14 +397,26 @@
     </div>
     </div>
 
+
+    <div class="row ">
+      <div class="col-md-6">
+          <div class=" row my-3 mr-3">
+              <label class="form label pb-3" for="images">Choose cover image:<span class="text-xs"> [Upload image for cover]</span></label>
+              
+              <input type="file" name="cover_image" class="form-control"  id="images">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class=" row my-3 mr-3">
+              <label class="form label pb-3" for="images">Choose other image:<span class="text-xs"> [Upload multiple image]</span></label>
+              
+              <input type="file" name="images[]" class="form-control" accept="image/*" id="images" multiple>
+          </div>
+        </div>
+    </div>
+    
     
 
-    <div class=" row my-3">
-      <div class="col-md-6">
-        <label class="form label" for="images">Choose image:</label>
-        <input type="file" name="upload_image[]" class="form-control" id="images" multiple>
-      </div>
-    </div>
 
     <div class="mt-4">
       <button type="submit" class="btn btn-a" >Submit</button>

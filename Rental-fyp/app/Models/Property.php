@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Image;
 
 class Property extends Model
 {
@@ -13,7 +14,7 @@ class Property extends Model
     protected $table = 'property';
 
     protected $fillable = [
-        'property_title', 'address', 'property_category', 'road_size', 'road_type', 'distance', 'distance_unit', 'built_year', 'bedroom', 'kitchen', 'bathroom', 'livingroom', 'parking', 'amenities', 'description', 'price', 'price_unit', 'negotiable', 'owner_name', 'owner_email', 'owner_phone', 'location', 'upload_image', 'latitude', 'longitude', 'user_id'
+        'property_title', 'address', 'property_category', 'road_size', 'road_type', 'distance', 'distance_unit', 'built_year', 'bedroom', 'kitchen', 'bathroom', 'livingroom', 'parking', 'amenities', 'description', 'price', 'price_unit', 'negotiable', 'owner_name', 'owner_email', 'owner_phone', 'location', 'cover_image', 'latitude', 'longitude', 'user_id'
     ];
 
     public function setAmenitiesAttribute($value)
@@ -26,10 +27,15 @@ class Property extends Model
         return $this->attributes['amenities'] = json_decode($value);
     }
 
-    public function setUploadImageAttribute($value)
-    {
-        $this->attributes['upload_image'] = json_encode($value);
-    }
+    // public function setUploadImageAttribute($value)
+    // {
+    //     $this->attributes['upload_image'] = json_encode($value);
+    // }
+
+    // public function getUploadImageAttribute($value)
+    // {
+    //     return $this->attributes['upload_image'] = json_encode($value);
+    // }
 
     //Relationship with user
     public function users()
@@ -37,6 +43,11 @@ class Property extends Model
         return $this->belongsTo(User::class);
     }
 
+    //Relationship with images table
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 
 
     public function getLatestProperty($type = false, $limit = 4, $offset = 0)
@@ -47,9 +58,9 @@ class Property extends Model
             return Property::orderBy('created_at', 'DESC')->take($limit)->skip($offset)->paginate($limit);
     }
 
-    public function getPropertyByTitle($title)
+    public function getPropertyById($id)
     {
-        $property = Property::where('property_title', $title)->first();
+        $property = Property::where('id', $id)->first();
         return $property;
     }
 

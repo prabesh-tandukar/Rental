@@ -4,14 +4,15 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\PropertyRequest;
-use App\Models\Property;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Models\Property;
+use App\Models\Image;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Image;
+use Prophecy\Prophet;
 use Storage;
 
 class PropertyController extends Controller
@@ -31,9 +32,26 @@ class PropertyController extends Controller
      */
     public function index()
     {
-
+        $allId = array();
+        $images = array();
         $allProperties = Property::paginate(9);
-        return view('User/Property/index', compact('allProperties'));
+
+        foreach ($allProperties as $item) {
+
+            $allId[] = $item->id;
+        }
+
+        foreach ($allId as $id) {
+            $prop = Property::find($id);
+            $images[] = $prop->images;
+        }
+
+        $image = Image::all();
+        // $prop = Property::find($allProperties->id);
+        // dd($allId);
+        // dd($images);
+        $Property = new Property();
+        return view('User/Property/index', compact('allProperties', 'image', 'Property'));
     }
 
     /**
@@ -59,14 +77,12 @@ class PropertyController extends Controller
     {
 
 
-        // dd($request);
+
         $user = auth()->user()->id;
         $userName = auth()->user()->name;
         $userEmail = auth()->user()->email;
         $userPhone = auth()->user()->phone;
-        // $property = new Property();
-        // $property->user_id = $user;
-        // $property->save();
+
 
         if ($request->method() == 'POST') {
             $requestObj = app(PropertyRequest::class);
@@ -76,27 +92,29 @@ class PropertyController extends Controller
 
             $validatedData['amenities'] = $requestObj->input('amenities');
 
-            $images = [];
-            if ($request->hasfile('upload_image')) {
-                foreach ($request->file('upload_image') as $file) {
-                    $name = time() . rand(1, 50) . '.' . $file->extension();
-                    $file->move(public_path('uploads/property-images'), $name);
-                    $images[] = $name;
-                }
+
+            $imageName = '';
+            if ($request->hasFile('cover_image')) {
+                $imageName = uniqid() . '.' . request()->cover_image->getClientOriginalExtension();
+                request()->cover_image->move(public_path('uploads/cover_images'), $imageName);
             }
 
-            // $property = new Property();
-            // $property->upload_image = $images;
-            // $property->save();
+            $validatedData['cover_image'] = $imageName;
 
-            $validatedData['upload_image'] = $images;
             $validatedData['user_id'] = $user;
 
-            // $property = new Property();
-            // $property->user_id = $user;
-            // $property->save();
+            $new_property = Property::create($validatedData);
 
-            Property::create($validatedData);
+            if ($request->has('images')) {
+                foreach ($request->file('images') as $image) {
+                    $imageName = $validatedData['property_title'] . '-image-' . time() . rand(1, 1000) . '.' . $image->extension();
+                    $image->move(public_path('uploads/property_images'), $imageName);
+                    Image::create([
+                        'property_id' => $new_property->id,
+                        'image' => $imageName
+                    ]);
+                }
+            }
 
             return redirect()->route('user.property.create')
                 ->with(array('success' => 'Property added successfully.'));

@@ -9,14 +9,16 @@ use Illuminate\Http\Request;
 
 class PropertyDetailController extends Controller
 {
-    public function detail($title)
+    public function index($id)
     {
 
-        // $this->property = app()->make('App\Models\Property');
 
         $Property = new Property();
-        $propertyDetail = $Property->getPropertyByTitle($title);
+        $propertyDetail = $Property->getPropertyById($id);
 
-        return view('Frontend/property-detail')->with(array('property' => $propertyDetail));
+        $prop = Property::find($id);
+        $images = $prop->images;
+
+        return view('User/PropertyDetail/index')->with(array('property' => $propertyDetail, 'images' => $images));
     }
 }
