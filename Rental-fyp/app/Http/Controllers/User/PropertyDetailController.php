@@ -13,7 +13,9 @@ class PropertyDetailController extends Controller
     {
 
         // $this->property = app()->make('App\Models\Property');
-        $propertyDetail = Property::getPropertyByTitle($title);
+
+        $Property = new Property();
+        $propertyDetail = $Property->getPropertyByTitle($title);
 
         return view('Frontend/property-detail')->with(array('property' => $propertyDetail));
     }

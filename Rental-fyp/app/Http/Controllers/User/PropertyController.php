@@ -6,11 +6,24 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PropertyRequest;
 use App\Models\Property;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Image;
 use Storage;
 
 class PropertyController extends Controller
 {
+
+
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +31,9 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        return view('User/Property/index');
+
+        $allProperties = Property::paginate(9);
+        return view('User/Property/index', compact('allProperties'));
     }
 
     /**
@@ -28,7 +43,10 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('User/Property/create');
+        $userName = auth()->user()->name;
+        $userEmail = auth()->user()->email;
+        $userPhone = auth()->user()->phone;
+        return view('User/Property/create', compact('userName', 'userEmail', 'userPhone'));
     }
 
     /**
@@ -40,6 +58,15 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
 
+
+        // dd($request);
+        $user = auth()->user()->id;
+        $userName = auth()->user()->name;
+        $userEmail = auth()->user()->email;
+        $userPhone = auth()->user()->phone;
+        // $property = new Property();
+        // $property->user_id = $user;
+        // $property->save();
 
         if ($request->method() == 'POST') {
             $requestObj = app(PropertyRequest::class);
@@ -63,6 +90,11 @@ class PropertyController extends Controller
             // $property->save();
 
             $validatedData['upload_image'] = $images;
+            $validatedData['user_id'] = $user;
+
+            // $property = new Property();
+            // $property->user_id = $user;
+            // $property->save();
 
             Property::create($validatedData);
 

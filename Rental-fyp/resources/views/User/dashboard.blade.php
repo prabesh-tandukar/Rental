@@ -21,11 +21,11 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('about') }}">About</a>
+            <a class="nav-link " href="{{ route('user.about') }}">About</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('property.create') }}">Submit Property</a>
+            <a class="nav-link " href="{{ route('user.property.create') }}">Submit Property</a>
           </li>
 
           <li class="nav-item">
@@ -33,11 +33,11 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('map') }}">Map</a>
+            <a class="nav-link " href="{{ route('user.map') }}">Map</a>
           </li>
 
           <li class="nav-item"> 
-            <a class="nav-link " href="{{ route('contact') }}">Contact</a>
+            <a class="nav-link " href="{{ route('user.contact') }}">Contact</a>
           </li>
 
           
