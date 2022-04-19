@@ -29,6 +29,24 @@
       </div>
     </section><!-- End Intro Single-->
 
+    <div class="container">
+        @if(session()->has('success_message'))
+          <div class="alert alert-success"> 
+              {{ session()->get('success_message') }}
+          </div>
+        @endif
+
+        @if(count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+    </div>
+
     <!-- ======= Property Grid ======= -->
     <section class="property-grid grid">
       <div class="container">
@@ -40,10 +58,12 @@
           </div>
 
           <h1>Seach Results</h1>
-          <p> 5 results(s) for '{{ request()->input('query') }}'</p>
+          <p> {{ $properties->count() }} result(s) for '{{ request()->input('query') }}'</p>
+
+         
           
-          {{-- @foreach ($allProperties as $property)
-            <div class="col-md-4">
+          @foreach ($properties as $property)
+            <div class="col-md-4 mt-5">
               <div class="card-box-a card-shadow">
                 <div class="img-box-a">
                   <img src="{{ asset('uploads/cover_images/'.$property->cover_image) }}" alt="coverImgae">
@@ -88,15 +108,15 @@
                 </div>
               </div>
             </div>
-          @endforeach --}}
+          @endforeach
 
-          {{-- <div class="row">
+          <div class="row">
             <div class="col-sm-12">
               <nav class="pagination-a">
-                  {!! $allProperties->links() !!}
+                  {!! $properties->links() !!}
               </nav>
             </div>
-          </div> --}}
+          </div>
       </div>
     </section><!-- End Property Grid Single-->
 

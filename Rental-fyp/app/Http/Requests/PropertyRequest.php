@@ -26,6 +26,7 @@ class PropertyRequest extends FormRequest
         return [
             'property_title' => 'required',
             'address' => 'required',
+            'city' => 'required',
             'property_category' => 'required',
             'road_size' => '',
             'road_type' => '',

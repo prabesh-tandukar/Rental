@@ -171,8 +171,14 @@ class PropertyController extends Controller
 
     public function search(Request $request)
     {
-        $property = Property::where('')
-        return view('User/Property/search-results');
+        $request->validate([
+            'query' => 'required|min:3',
+        ]);
+        $query = $request->input('query');
+        $properties = Property::where('city', 'like', "%$query%")
+            ->orWhere('address', 'like', "%$query%")
+            ->orWhere('property_category', 'like', "%$query%")->paginate(6);
+        return view('User/Property/search-results', compact('properties'));
     }
 
     public function catelog()
