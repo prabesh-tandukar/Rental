@@ -9,8 +9,8 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">All Listed Properties</h1>
-              <span class="color-text-a">View all the listed properties</span>
+              <h1 class="title-single">Your Searched Properties</h1>
+              <span class="color-text-a">View the properties that meets your search</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -20,7 +20,7 @@
                   <a href="{{ route('user.home') }}">Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  Properties 
+                  Search
                 </li>
               </ol>
             </nav>
@@ -36,28 +36,13 @@
           <div class="col-sm-12">
             <div class="grid-option">
               <x-search />
-              {{-- <form action="{{ route('user.search') }}" method="GET" class="form-inline ">
-                <div class="row">
-                  <div class="col-auto">
-                    <input class="form-control" name="query" type="text" placeholder="Search" aria-label="Search">
-                  </div>
-                  <div class="col-auto">
-                    <button class="btn btn-outline-success " type="submit">Search</button>
-                  </div>
-                </div>
-              </form> --}}
-              {{-- <form>
-                <select class="custom-select">
-                  <option selected>All</option>
-                  <option value="1">New to Old</option>
-                  <option value="2">For Rent</option>
-                  <option value="3">For Sale</option>
-                </select>
-              </form> --}}
             </div>
           </div>
 
-          @foreach ($allProperties as $property)
+          <h1>Seach Results</h1>
+          <p> 5 results(s) for '{{ request()->input('query') }}'</p>
+          
+          {{-- @foreach ($allProperties as $property)
             <div class="col-md-4">
               <div class="card-box-a card-shadow">
                 <div class="img-box-a">
@@ -103,15 +88,15 @@
                 </div>
               </div>
             </div>
-          @endforeach
+          @endforeach --}}
 
-          <div class="row">
+          {{-- <div class="row">
             <div class="col-sm-12">
               <nav class="pagination-a">
                   {!! $allProperties->links() !!}
               </nav>
             </div>
-          </div>
+          </div> --}}
       </div>
     </section><!-- End Property Grid Single-->
 

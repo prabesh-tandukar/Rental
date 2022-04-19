@@ -169,6 +169,12 @@ class PropertyController extends Controller
         //
     }
 
+    public function search(Request $request)
+    {
+        $property = Property::where('')
+        return view('User/Property/search-results');
+    }
+
     public function catelog()
     {
         return view('Frontend/property');
