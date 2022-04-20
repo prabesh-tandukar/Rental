@@ -55,22 +55,23 @@
 
             <div class="row justify-content-between">
               <div class="col-md-5 col-lg-4">
-                <div class="property-price d-flex justify-content-center foo">
+                {{-- <div class="property-price d-flex justify-content-center foo">
                   <div class="card-header-c d-flex">
                     <div class="card-box-ico">
-                      <span class="bi bi-cash">Rs.</span>
-                    </div>
+                      <span class="bi bi-cash"></span>
+                      {{-- Rs.{{ $property->price }} {{ $property->price_unit }} --}}
+                    {{-- </div>
                     <div class="card-title-c align-self-center">
-                      <h5 class="title-c">{{ $property->price }}</h5>
+                      <h5 class="text-xl">Rs.{{ $property->price }}yearly</h5>
                     </div>
                   </div>
-                </div>
+                </div> --}}
                 <div class="property-summary">
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="title-box-d section-t4">
                          
-                        <h3 class="title-d">Quick Summary</h3>
+                        <h3 class="title-d">Overview</h3>
                       </div>
                     </div>
                   </div>
@@ -81,25 +82,38 @@
                         <span>{{ $property->property_title }}</span>
                       </li>
                       <li class="d-flex justify-content-between">
-                        <strong>Location:</strong>
-                        <span>{{ $property->address }}</span>
-                      </li>
-                      <li class="d-flex justify-content-between">
                         <strong>Property Type:</strong>
                         <span>{{ $property->property_category }}</span>
                       </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Property Price:</strong>
+                        <span>Rs.{{ $property->price }}{{ $property->price_unit }}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Price Negotiable:</strong>
+                        <span>{{ $property->negotiable }}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>City:</strong>
+                        <span>{{ $property->city }}</span>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Location:</strong>
+                        <span>{{ $property->address }}</span>
+                      </li>
+                      
                   
                       <li class="d-flex justify-content-between">
-                        <strong>Living Room:</strong>
-                        <span>{{ $property->livingroom }}</span>
+                        <strong>Distance from Main road:</strong>
+                        <span>{{ $property->distance }}{{ $property->distance_unit }}</span>
                       </li>
                       <li class="d-flex justify-content-between">
-                        <strong>Kitchen:</strong>
-                        <span>{{ $property->kitchen }}</span>
+                        <strong>Road Size:</strong>
+                        <span>{{ $property->road_size }}</span>
                       </li>
                       <li class="d-flex justify-content-between">
-                        <strong>Beds:</strong>
-                        <span>{{ $property->bedroom }}</span>
+                        <strong>Road Type:</strong>
+                        <span>{{ $property->road_type }}</span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Baths:</strong>
@@ -125,31 +139,78 @@
                   <p class="description color-text-a">
                     {{$property->description}}
                   </p>
-                  {{-- <p class="description color-text-a no-margin">
-                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
-                    malesuada. Quisque velit nisi,
-                    pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
-                  </p> --}}
                 </div>
                 <div class="row section-t3">
                   <div class="col-sm-12">
                     <div class="title-box-d">
                       <h3 class="title-d">Amenities</h3>
-                      {{-- @php
-                        dd($property)    ;
-                      @endphp --}}
                     </div>
                   </div>
                 </div>
                 <div class="amenities-list color-text-a">
                   <ul class="list-a no-margin">
-                    
                   @foreach ($property->amenities as $item)
                     <li>{{ $item }}</li>
                   @endforeach
                   </ul>
                 </div>
+
+                <div class="row section-t3">
+                  <div class="col-sm-12">
+                    <div class="title-box-d">
+                      <h3 class="title-d">Other Details</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="summary-list">
+                  <ul class="list">
+                    <div class="row">
+                        <div class="col">
+                          <li class="d-flex">
+                            <strong class="pr-3">Livingroom:</strong>
+                            <span>{{ $property->livingroom }}</span>
+                          </li>
+                        </div>
+                        <div class="col">
+                          <li class="d-flex">
+                            <strong class="pr-3">Bedroom:</strong>
+                            <span>{{ $property->bedroom }}</span>
+                          </li>
+                        </div>
+                        <div class="col">
+                          <li class="d-flex">
+                            <strong class="pr-3">Kitchen:</strong>
+                            <span>{{ $property->kitchen }}</span>
+                          </li>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <li class="">
+                          <strong class="pr-3">Bathroom:</strong>
+                          <span>{{ $property->bathroom }}</span>
+                        </li>
+                      </div>
+                      <div class="col">
+                        <li class="d-flex">
+                          <strong class="pr-3">Parking:</strong>
+                          <span>{{ $property->parking }}</span>
+                        </li>
+                      </div>
+                      <div class="col">
+                        <li class="d-flex">
+                          <strong class="pr-3">Built in:</strong>
+                          <span>{{ $property->built_year }}</span>
+                        </li>
+                      </div>
+                  </div>
+                   
+                    
+                  </ul>
+                </div>
+                
               </div>
+
             </div>
           </div>
           <div class="col-md-10 offset-md-1">

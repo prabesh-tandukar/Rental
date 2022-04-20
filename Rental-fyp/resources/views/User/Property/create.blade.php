@@ -124,11 +124,11 @@
            <div class="col">
               <select name="road_type" id="" class="form-select">
                 <option value="">--Select Road Type--</option>
-                <option value="gravelled">Gravelled</option>
-                <option value="soil-stabilized">Soil Stabilized</option>
-                <option value="paved">Paved</option>
-                <option value="blacktopped">Blacktopped</option>
-                <option value="alley">Alley</option>
+                <option value="Gravelled">Gravelled</option>
+                <option value="Soil-stabilized">Soil Stabilized</option>
+                <option value="Paved">Paved</option>
+                <option value="Blacktopped">Blacktopped</option>
+                <option value="Alley">Alley</option>
               </select>
            </div>
            
@@ -296,37 +296,37 @@
       <div class="row">
 
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="wifi"><input type="checkbox" class="" name="amenities[]" id="wifi" value="wifi" class="pl-3"> Wifi</label>
+          <label class="form-check-label" for="wifi"><input type="checkbox" class="" name="amenities[]" id="wifi" value="Wifi" class="pl-3"> Wifi</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="security"><input type="checkbox" class="" name="amenities[]" id="security" value="security"> Security</label>
+          <label class="form-check-label" for="security"><input type="checkbox" class="" name="amenities[]" id="security" value="Security"> Security</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="air_conditioner" ><input type="checkbox" class="" name="amenities[]" id="air_conditioner" value="air_conditioner"> Air Conditioner</label>
+          <label class="form-check-label" for="air_conditioner" ><input type="checkbox" class="" name="amenities[]" id="air_conditioner" value="Air-conditioner"> Air Conditioner</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="water_supply" ><input type="checkbox" class="" name="amenities[]" id="water_supply" value="water_supply"> Water Supply</label>
+          <label class="form-check-label" for="water_supply" ><input type="checkbox" class="" name="amenities[]" id="water_supply" value="Water-supply"> Water Supply</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="balcony"> <input type="checkbox" class="" name="amenities[]" id="balcony" value="balcony"> Balcony</label>
+          <label class="form-check-label" for="balcony"> <input type="checkbox" class="" name="amenities[]" id="balcony" value="Balcony"> Balcony</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="gym" ><input type="checkbox" class="" name="amenities[]" id="gym" value="gym"> Gym</label>
+          <label class="form-check-label" for="gym" ><input type="checkbox" class="" name="amenities[]" id="gym" value="Gym"> Gym</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="swimming_pool" > <input type="checkbox" class="" name="amenities[]" id="swimming_pool" value="swimming_pool"> Swimming Pool</label>
+          <label class="form-check-label" for="swimming_pool" > <input type="checkbox" class="" name="amenities[]" id="swimming_pool" value="Swimming-pool"> Swimming Pool</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="tv_cable" ><input type="checkbox" class="" name="amenities[]" id="tv_cable" value="tv_cable"> Tv Cable</label>
+          <label class="form-check-label" for="tv_cable" ><input type="checkbox" class="" name="amenities[]" id="tv_cable" value="Tv-cable"> Tv Cable</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="laundry"><input type="checkbox" class="" name="amenities[]" id="laundry" value="laundry"> Laundry</label>
+          <label class="form-check-label" for="laundry"><input type="checkbox" class="" name="amenities[]" id="laundry" value="Laundry"> Laundry</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="lift"><input type="checkbox" class="" name="amenities[]" id="lift" value="lift"> Lift</label>
+          <label class="form-check-label" for="lift"><input type="checkbox" class="" name="amenities[]" id="lift" value="Lift"> Lift</label>
         </div>
         <div class=" col-md-2 form-check form-check-inline">
-          <label class="form-check-label" for="solar"><input type="checkbox" class="" name="amenities[]" id="solar" value="solar"> Solar</label>
+          <label class="form-check-label" for="solar"><input type="checkbox" class="" name="amenities[]" id="Solar" value="solar"> Solar</label>
         </div>
       </div>
               
@@ -357,15 +357,15 @@
       <div class="col">
           <select name="price_unit" id="price" class="form-select">
             <option value="">--Select Unit--</option>
-            <option value="per_month">Per Month</option>
-            <option value="per_annum">Per Annum</option>
+            <option value="Monthly">Per Month</option>
+            <option value="Yearly ">Per Annum</option>
           </select>
       </div>
     
     <div class="col-md-6">
             <label for="negotiable" class="form-label pl-2">Negotiable:</label>
-            <label for="negotiable" class="form-label"><input type="radio" name="negotiable" id="negotiable" value="yes"> Yes</label>
-            <label for="no" class="form-label"><input type="radio" name="negotiable" id="negotiable" value="yes"> No</label>
+            <label for="negotiable" class="form-label"><input type="radio" name="negotiable" id="negotiable" value="Yes"> Yes</label>
+            <label for="no" class="form-label"><input type="radio" name="negotiable" id="negotiable" value="No"> No</label>
             
     </div>
 </div>
