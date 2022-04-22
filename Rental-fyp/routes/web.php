@@ -44,6 +44,13 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'admin.',
     ], function () {
         Route::get('home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home.index');
+
+        Route::get('aboutus', [App\Http\Controllers\Admin\AboutUsController::class, 'index'])->name('aboutUs.index');
+        Route::get('aboutus/create', [App\Http\Controllers\Admin\AboutUsController::class, 'create'])->name('aboutUs.create');
+        Route::post('aboutus/create', [App\Http\Controllers\Admin\AboutUsController::class, 'store'])->name('aboutUs.store');
+        Route::get('aboutus/{about}/edit', [App\Http\Controllers\Admin\AboutUsController::class, 'edit'])->name('aboutUs.edit');
+        Route::post('aboutus/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'update'])->name('aboutUs.update');
+        Route::delete('aboutus/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('aboutUs.destroy');
     });
 
 
@@ -67,14 +74,15 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('about', [App\Http\Controllers\User\AboutUsController::class, 'about'])->name('about');
 
-        Route::get('contact', [App\Http\Controllers\User\ContactController::class, 'contact'])->name('contact');
+        Route::get('contact', [App\Http\Controllers\User\ContactController::class, 'create'])->name('contact');
+        Route::post('contact', [App\Http\Controllers\User\ContactController::class, 'store'])->name('contact.store');
 
         Route::get('tenant', [App\Http\Controllers\User\TenantController::class, 'index'])->name('tenant.index');
         Route::get('tenant/create', [App\Http\Controllers\User\TenantController::class, 'create'])->name('tenant.create');
         Route::post('tenant/create', [App\Http\Controllers\User\TenantController::class, 'store'])->name('tenant.store');
         Route::get('tenant/edit', [App\Http\Controllers\User\TenantController::class, 'edit'])->name('tenant.edit');
         Route::post('tenant/edit', [App\Http\Controllers\User\TenantController::class, 'update'])->name('tenant.update');
-        Route::get('tenant/destroy', [App\Http\Controllers\User\TenantController::class, 'destroy'])->name('tenant.destroy');
+        Route::post('tenant/destroy', [App\Http\Controllers\User\TenantController::class, 'destroy'])->name('tenant.destroy');
     });
 });
 

@@ -292,7 +292,7 @@ a:hover {
 
 .title-a {
   text-decoration: none;
-  font-size: 2.6rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
@@ -586,7 +586,7 @@ a:hover {
   }
 }
 .navbar-default.navbar-trans .nav-link, .navbar-default.navbar-reduce .nav-link {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #000000;
   font-weight: 600;
   letter-spacing: 0.03em;

@@ -25,14 +25,14 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="{{ route('admin.aboutUs.index') }}">
             <i class="bi bi-card-text"></i>
           <span>About Us</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" href="">
             <i class="bi bi-card-text"></i>
           <span>Contact Us</span>
         </a>

@@ -6,6 +6,7 @@
 
 <div class="flex flex-row">
     <div class="basis-1/4"><x-sidebar/></div>
+    
     <div class="basis-1/2 mt-20 pt-20">
         <section class="content">
             <div class="row">
@@ -49,6 +50,23 @@
                       <form method="POST" action="{{ route('user.tenant.create') }}" >
                         @csrf
                         <div class="row">
+                          {{-- <div class="container">
+                            @if(session()->has('success'))
+                              <div class="alert alert-success"> 
+                                  {{ session()->get('success') }}
+                              </div>
+                            @endif
+                    
+                            @if(count($errors) > 0)
+                              <div class="alert alert-danger">
+                                <ul>
+                                  @foreach ($errors->all() as $error)
+                                      <li>{{ $error }}</li>
+                                  @endforeach
+                                </ul>
+                              </div>
+                            @endif
+                        </div> --}}
                             <div class="col-xs-12 col-sm-12 col-md-12 pb-3">
                                 <div class="form-group">
                                     <strong>Tenant Name:</strong>

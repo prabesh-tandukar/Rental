@@ -57,7 +57,7 @@
                         </a>
 
                     @csrf
-                    //@method('')
+                   
 
                     <button type="submit" title="delete" style="border: none; background-color:transparent;">
                         <i class="fas fa-trash fa-lg text-danger"></i>

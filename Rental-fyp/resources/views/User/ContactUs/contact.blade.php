@@ -1,4 +1,5 @@
 @extends('layouts/header-footer')
+
 @section('content')
 
 <main id="main">
@@ -17,7 +18,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
+                  <a href="{{ route('user.home') }}">Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
                   Contact
@@ -34,48 +35,43 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <div class="contact-map box">
-              <div id="map" class="contact-map">
+            <div id="map-responsive" class="contact-map box">
+              <div id="map"  class="contact-map">
                 {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes+Square!5e0!3m2!1ses-419!2sve!4v1510329142834" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> --}}
-                <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/view?zoom=13&center=27.6701%2C85.2283&key=AIzaSyDh_VUkJzFhwkfxlR8slOC9bSLOV8mZ9jw"></iframe>
+                <iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/view?zoom=13&center=27.6701%2C85.2283&key=AIzaSyDh_VUkJzFhwkfxlR8slOC9bSLOV8mZ9jw"></iframe>
               </div>
             </div>
           </div>
           <div class="col-sm-12 section-t8">
             <div class="row">
               <div class="col-md-7">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form method="POST" action="{{ route('user.contact') }}"   >
+                  @csrf
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <div class="form-group">
-                        <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="Your Name" required>
+                        <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="Your Name">
                       </div>
                     </div>
                     <div class="col-md-6 mb-3">
                       <div class="form-group">
-                        <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Your Email" required>
+                        <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Your Email">
                       </div>
                     </div>
                     <div class="col-md-12 mb-3">
                       <div class="form-group">
-                        <input type="text" name="subject" class="form-control form-control-lg form-control-a" placeholder="Subject" required>
+                        <input type="text" name="subject" class="form-control form-control-lg form-control-a" placeholder="Subject">
                       </div>
                     </div>
                     <div class="col-md-12">
                       <div class="form-group">
-                        <textarea name="message" class="form-control" name="message" cols="45" rows="8" placeholder="Message" required></textarea>
+                        <textarea name="message" class="form-control" name="message" cols="45" rows="8" placeholder="Message" ></textarea>
                       </div>
                     </div>
-                    <div class="col-md-12 my-3">
-                      <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                      </div>
-                    </div>
+                   
 
-                    <div class="col-md-12 text-center">
-                      <button type="submit" class="btn btn-a">Send Message</button>
+                    <div class="col-md-12 text-center mt-5">
+                      <button type="submit" class="btn btn-a">Submit</button>
                     </div>
                   </div>
                 </form>
@@ -127,22 +123,22 @@
                       <div class="socials-footer">
                         <ul class="list-inline">
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
+                            <a href="https://www.facebook.com/" class="link-one">
                               <i class="bi bi-facebook" aria-hidden="true"></i>
                             </a>
                           </li>
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
+                            <a href="https://twitter.com/home?lang=en" class="link-one">
                               <i class="bi bi-twitter" aria-hidden="true"></i>
                             </a>
                           </li>
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
+                            <a href="https://www.instagram.com/" class="link-one">
                               <i class="bi bi-instagram" aria-hidden="true"></i>
                             </a>
                           </li>
                           <li class="list-inline-item">
-                            <a href="#" class="link-one">
+                            <a href="https://np.linkedin.com/" class="link-one">
                               <i class="bi bi-linkedin" aria-hidden="true"></i>
                             </a>
                           </li>

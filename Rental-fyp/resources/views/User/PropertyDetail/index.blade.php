@@ -3,6 +3,9 @@
 
 <main id="main">
 
+
+
+
     <!-- ======= Intro Single ======= -->
     <section class="intro-single">
       <div class="container">
@@ -87,7 +90,7 @@
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Property Price:</strong>
-                        <span>Rs.{{ $property->price }}{{ $property->price_unit }}</span>
+                        <span>Rs.{{ $property->price }}-{{ $property->price_unit }}</span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Price Negotiable:</strong>
@@ -114,15 +117,7 @@
                       <li class="d-flex justify-content-between">
                         <strong>Road Type:</strong>
                         <span>{{ $property->road_type }}</span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <strong>Baths:</strong>
-                        <span>{{ $property->bathroom }}</span>
-                      </li>
-                      <li class="d-flex justify-content-between">
-                        <strong>Parking:</strong>
-                        <span>{{ $property->parking }}</span>
-                      </li>
+                      </li> 
                     </ul>
                   </div>
                 </div>
@@ -223,75 +218,55 @@
               <div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
           
                 <div id="map" style="width: 800px; height: 400px;"></div>
+                {{-- @php
+                    // dd($property->latitude);
+                    $latitude = $property->latitude;
+                    <input type="hidden" value="<?= htmlspecialchars( $latitude) ?>">
+                @endphp --}}
+                <input type="hidden" id="latitude" value="{{ $property->latitude }}">
+                <input type="hidden" id="longitude" value="{{ $property->longitude }}">
+                
               </div>
             
             </div>
           </div>
-          {{-- <div class="col-md-12">
+          <div class="col-md-12">
             <div class="row section-t3">
               <div class="col-sm-12">
                 <div class="title-box-d">
-                  <h3 class="title-d">Contact Agent</h3>
+                  <h3 class="title-d">Posted by</h3>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6 col-lg-4">
+              {{-- <div class="col-md-6 col-lg-4">
                 <img src="assets/img/agent-4.jpg" alt="" class="img-fluid">
-              </div>
+              </div> --}}
               <div class="col-md-6 col-lg-4">
                 <div class="property-agent">
-                  <h4 class="title-agent">Anabella Geller</h4>
-                  <p class="color-text-a">
-                    Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                    dui. Quisque velit nisi,
-                    pretium ut lacinia in, elementum id enim.
-                  </p>
+                  
+                
                   <ul class="list-unstyled">
                     <li class="d-flex justify-content-between">
-                      <strong>Phone:</strong>
-                      <span class="color-text-a">(222) 4568932</span>
+                      <strong>Posted by:</strong>
+                      <span class="color-text-a">{{ $user->name }}</span>
                     </li>
+
                     <li class="d-flex justify-content-between">
-                      <strong>Mobile:</strong>
-                      <span class="color-text-a">777 287 378 737</span>
+                      <strong>Phone:</strong>
+                      <span class="color-text-a">{{ $user->phone }}</span>
                     </li>
+                
                     <li class="d-flex justify-content-between">
                       <strong>Email:</strong>
-                      <span class="color-text-a">annabella@example.com</span>
+                      <span class="color-text-a">{{ $user->email }}</span>
                     </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Skype:</strong>
-                      <span class="color-text-a">Annabela.ge</span>
-                    </li>
+
                   </ul>
-                  <div class="socials-a">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+
                 </div>
               </div>
-              <div class="col-md-12 col-lg-4">
+              <div class="col-md-12 col-lg-8">
                 <div class="property-contact">
                   <form class="form-a">
                     <div class="row">
@@ -318,41 +293,51 @@
                 </div>
               </div>
             </div>
-          </div> --}}
+          </div>
         </div>
       </div>
     </section><!-- End Property Single-->
 
+    
+
   </main><!-- End #main -->
     
   <script>
+    //store data of longitude and latitude to the script
+    var latitude = document.getElementById("latitude").value;
+    var longitude = document.getElementById("longitude").value;
+    //convert the string value to float
+    var lat = parseFloat(latitude);
+    var lon = parseFloat(longitude);
+
         function initMap() {
             //Map options
             var options = {
-                zoom:8,
-                center:{lat:27.7172,lng:85.3240}
+                zoom:12,
+                center:{lat:lat,lng:lon}
             }
+
             //new map
             var map = new google.maps.Map(document.getElementById('map'), options);
 
             //add marker
             var marker = new google.maps.Marker({
-                position: {lat:27.7172,lng:85.3240},
+                position: {lat:lat,lng:lon} ,
                 map:map,
-                icon: ''
+             
             });
 
             var infoWindow = new google.maps.InfoWindow({
                 content:'<h1>Kathmandu</h1>'
             });
 
-            marker.addListener('click', function() {
-                infoWindow.open(map, marker);
-            }) 
+            // marker.addListener('click', function() {
+            //     infoWindow.open(map, marker);
+            // }) 
         }
     </script>
 
-  <script type="text/javascript" src="{{ asset('js/map.js') }}"></script>
+  {{-- <script type="text/javascript" src="{{ asset('js/map.js') }}"></script> --}}
 
   <script 
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDh_VUkJzFhwkfxlR8slOC9bSLOV8mZ9jw&callback=initMap&v=weekly"

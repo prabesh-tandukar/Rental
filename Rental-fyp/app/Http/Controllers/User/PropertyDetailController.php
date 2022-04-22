@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Property;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -19,6 +20,11 @@ class PropertyDetailController extends Controller
         $prop = Property::find($id);
         $images = $prop->images;
 
-        return view('User/PropertyDetail/index')->with(array('property' => $propertyDetail, 'images' => $images));
+        $propertyUserId = $propertyDetail->user_id;
+        // dd($propertyUserId);
+        $user = new User();
+        $userInfo = $user->getUserById($propertyUserId);
+
+        return view('User/PropertyDetail/index')->with(array('property' => $propertyDetail, 'images' => $images, 'user' => $userInfo));
     }
 }

@@ -41,7 +41,7 @@ class TenantController extends Controller
     {
         $user = auth()->user()->id;
         // dd($request->tenant_name);
-        dd($request);
+        // dd($request);
 
         // $id = auth()->user()->user_id;
         // if ($request->method() == 'POST') {
