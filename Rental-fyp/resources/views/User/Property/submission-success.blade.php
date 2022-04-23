@@ -26,9 +26,7 @@
                         <button type="button" class="btn btn-outline-secondary"><a href="{{ route('user.dashboard') }}">View Dashboard</a> </button> 
                     </div>
                 </div>
-                        
-                        
-                        
+      
               </p>
             </div>
           </div>

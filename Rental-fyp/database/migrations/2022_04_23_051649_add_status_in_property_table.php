@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddVerifyInUserTable extends Migration
+class AddStatusInPropertyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddVerifyInUserTable extends Migration
      */
     public function up()
     {
-        Schema::table('user', function (Blueprint $table) {
-            //
+        Schema::table('property', function (Blueprint $table) {
+
+            $table->enum('status', ['Active', 'Pending', 'Reject'])->default('Pending');
         });
     }
 
@@ -25,8 +26,8 @@ class AddVerifyInUserTable extends Migration
      */
     public function down()
     {
-        Schema::table('user', function (Blueprint $table) {
-            //
+        Schema::table('property', function (Blueprint $table) {
+            $table->dropColumn('status');
         });
     }
 }

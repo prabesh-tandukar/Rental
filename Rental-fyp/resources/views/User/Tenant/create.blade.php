@@ -105,9 +105,9 @@
                                   </label>
                                 </div>
                                
-                            @if ($errors->has('status'))
-                                <div class="alert alert-danger">{{ $errors->first('status') }}</div>
-                            @endif
+                                @if ($errors->has('status'))
+                                    <div class="alert alert-danger">{{ $errors->first('status') }}</div>
+                                @endif
                           </div>
                       
                         </div>         

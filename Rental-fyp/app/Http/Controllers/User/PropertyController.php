@@ -79,10 +79,6 @@ class PropertyController extends Controller
 
 
         $user = auth()->user()->id;
-        $userName = auth()->user()->name;
-        $userEmail = auth()->user()->email;
-        $userPhone = auth()->user()->phone;
-
 
         if ($request->method() == 'POST') {
             $requestObj = app(PropertyRequest::class);
@@ -141,9 +137,9 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Property $property)
     {
-        //
+        return view('User.property.edit', compact('property'));
     }
 
     /**

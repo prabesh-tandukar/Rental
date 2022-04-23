@@ -45,6 +45,10 @@ Route::group(['middleware' => 'auth'], function () {
     ], function () {
         Route::get('home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home.index');
 
+        Route::get('property', [App\Http\Controllers\Admin\PropertyController::class, 'index'])->name('property.index');
+        Route::get('approve/{$id}', [App\Http\Controllers\Admin\PropertyController::class, 'approve'])->name('property.approve');
+        Route::put('approve/{property}/update', [App\Http\Controllers\Admin\PropertyController::class, 'update'])->name('property.update');
+
         Route::get('aboutus', [App\Http\Controllers\Admin\AboutUsController::class, 'index'])->name('aboutUs.index');
         Route::get('aboutus/create', [App\Http\Controllers\Admin\AboutUsController::class, 'create'])->name('aboutUs.create');
         Route::post('aboutus/create', [App\Http\Controllers\Admin\AboutUsController::class, 'store'])->name('aboutUs.store');
@@ -63,8 +67,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('home', [App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
 
         Route::get('property', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.index');
-        Route::get('/submit-property', [App\Http\Controllers\User\PropertyController::class, 'create'])->name('property.create');
-        Route::post('submit-property', [App\Http\Controllers\User\PropertyController::class, 'store'])->name('property.store');
+        Route::get('property/create', [App\Http\Controllers\User\PropertyController::class, 'create'])->name('property.create');
+        Route::post('property/create', [App\Http\Controllers\User\PropertyController::class, 'store'])->name('property.store');
+        Route::get('property/{property}/edit', [App\Http\Controllers\User\PropertyController::class, 'edit'])->name('property.edit');
+        Route::put('property/{property}/edit', [App\Http\Controllers\User\PropertyController::class, 'update'])->name('property.update');
+        Route::delete('/property/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('property.destroy');
+
         Route::get('property-catalog', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.catalog');
         Route::get('/search', [App\Http\Controllers\User\PropertyController::class, 'search'])->name('search');
         Route::get('submission', [App\Http\Controllers\User\PropertyController::class, 'submission'])->name('submission');

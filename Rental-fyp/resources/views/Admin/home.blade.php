@@ -31,14 +31,14 @@
 
 
                 <div class="card-body">
-                  <h5 class="card-title">Total Properties <span>| Listed</span></h5>
+                  <h5 class="card-title">Total Properties <span>| Active</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-house-door"></i>             
                     </div>
                     <div class="ps-5">
-                      <h6>2</h6>
+                      <h6>{{ $numOfProperty }}</h6>
                     </div>
                   </div>
                 </div>
@@ -62,7 +62,7 @@
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-5">
-                      <h6>2</h6>
+                      <h6>{{ $numOfUser }}</h6>
                     </div>
                   </div>
 
