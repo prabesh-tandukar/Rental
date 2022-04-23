@@ -38,44 +38,37 @@
   <!-- ======= Header/Navbar ======= -->
   <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
     <div class="container">
-        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a class="navbar-brand text-brand" href="{{ route('homepage') }}">Rent<span class="color-b">Ghar</span></a>
+        
+      <a class="navbar-brand text-brand {{ (strpos(Route::currentRouteName(), 'homepage') == 0) ? 'active' : '' }}" href="{{ route('homepage') }}">Rent<span class="color-b">Ghar</span></a>
 
-      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+      <div class="navbar-collapse collapse justify-content-center ml-10" id="navbarDefault">
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link active" href="{{ route('homepage') }}">Home</a>
+            <a class="nav-link {{ (request()->is('/')) ? 'active' : '' }}" href="{{ route('homepage') }}">Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.about') }}">About</a>
+            <a class="nav-link {{ (request()->is('user/about*')) ? 'active' : '' }}" href="{{ route('user.about') }}">About</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.property.create') }}">Submit Property</a>
+            <a class="nav-link {{ (request()->is('user/property/create*')) ? 'active' : '' }}" href="{{ route('user.property.create') }}">Submit Property</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.property.catalog') }}">Catalog</a>
+            <a class="nav-link {{ (request()->is('user/property-catalog*')) ? 'active' : '' }}" href="{{ route('user.property.catalog') }}">Catalog</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link " href="{{ route('user.map') }}">Map</a>
-          </li>
 
           <li class="nav-item"> 
-            <a class="nav-link " href="{{ route('user.contact') }}">Contact</a>
+            <a class="nav-link {{ (request()->is('user/contact*')) ? 'active' : '' }}" href="{{ route('user.contact') }}">Contact</a>
           </li>
 
             @auth
             <li class="nav-item ">
               
-              <a class="nav-link " href="{{ route('user.dashboard') }}">                  <i class="bi bi-person-circle "></i> Dashboard </a>
+              <a class="nav-link {{ (request()->is('user/dashboard*')) ? 'active' : '' }} " href="{{ route('user.dashboard') }}">                  <i class="bi bi-person-circle "></i> Dashboard </a>
             </li>
             <li class="nav-item">
                 <form method="POST" action="/logout">
@@ -154,22 +147,19 @@
             <div class="w-body-a">
               <ul class="list-unstyled">
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
+                  <i class="bi bi-chevron-right"></i> <a href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">About</a>
+                  <i class="bi bi-chevron-right"></i> <a href="{{ route('user.about') }}">About</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Submit Property</a>
+                  <i class="bi bi-chevron-right"></i> <a href="{{ route('user.property.create') }}">Submit Property</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Catelog</a>
+                  <i class="bi bi-chevron-right"></i> <a href="{{ route("user.property.catalog") }}">Catelog</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Map</a>
-                </li>
-                <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Contact</a>
+                  <i class="bi bi-chevron-right"></i> <a href="{{ route("user.contact") }}">Contact</a>
                 </li>
               </ul>
             </div>
@@ -182,32 +172,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <nav class="nav-footer">
-          </nav>
-          <div class="socials-a">
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="bi bi-facebook" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="bi bi-twitter" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="bi bi-instagram" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="bi bi-linkedin" aria-hidden="true"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
           <div class="copyright-footer">
             <p class="copyright color-text-a">
               &copy; Copyright

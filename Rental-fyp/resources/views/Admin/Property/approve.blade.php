@@ -33,7 +33,7 @@
 <body>
     <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
         <div class="container"> 
-          <a class="navbar-brand text-brand" href="">Approve Property</span></a>
+          <a class="navbar-brand text-brand" href="">Admin View Property</span></a>
           <a class="navbar-brand text-brand" href="{{ route('admin.property.index') }}">Return Back</span></a>
         </div>
     
@@ -277,30 +277,44 @@
                     <label for="status" class="py-3"> <strong class="text-xl">Approve:</strong> </label>
                                 <div class="form-group clearfix ">
                                     <div class="icheck-primary d-inline">
-                                      <input type="radio" id="aprrove" name="status"  value="Approve" >
-                                      <label for="approve">
+
+                                      {{-- <select name="city" id="city" class="form-select">
+                                        <option value="">--Select-City--</option>
+                                        <option value="kathmandu">kathmandu</option>
+                                        <option value="lalitpur">lalitpur</option>
+                                        <option value="bhaktapur">bhaktapur</option>
+                                      </select> --}}
+                                      <select name="status" id="status" class="form-control">
+                                        <option value="">Choose....</option>
+                                        <option value="active" {{ ($property->status === 'active') ? 'Selected' : ''}}>Active</option>
+                                        <option value="reject" {{ ($property->status === 'reject') ? 'Selected' : ''}}>Reject</option>   
+                                        <option value="pending" {{ ($property->status === 'pending') ? 'Selected' : ''}}>Pending</option>   
+
+                                     </select>     
+                                      {{-- <input type="radio" id="active" name="status"  value="Active" 
+                                        {{ $property->status == 'Active' ? 'checked' : '' }} > 
+                                      <label for="active">
                                       Approve
                                       </label>
                                     </div>
                                     <div class="icheck-primary d-inline">
-                                      <input type="radio" name="status"  value="Reject" id="reject" >
+                                      <input type="radio" name="status"  value="Reject" id="reject"  {{ $property->status == 'Reject' ? 'checked' : '' }} >
                                       <label for="reject">
                                       Reject
                                       </label>
                                     </div>
                                     <div class="icheck-primary d-inline">
-                                        <input type="radio" name="status"  value="Pending" id="pending" checked="checked" >
+                                        <input type="radio" name="status"  value="Pending" id="pending" {{ $property->status == 'Pending' ? 'checked' : '' }}  >
                                         <label for="pending">
                                         Pending
                                         </label>
-                                      </div>
+                                      </div> --}}
+                                      @if ($errors->has('status'))
+                                        <div class="alert alert-danger">{{ $errors->first('status') }}</div>
+                                    @endif
                                       <div class="my-3">
                                         <button type="submit" class="btn btn-outline-primary">Submit</button>
                                       </div>
-                                   
-                                    @if ($errors->has('status'))
-                                        <div class="alert alert-danger">{{ $errors->first('status') }}</div>
-                                    @endif
                               </div>
                               
                 </form>

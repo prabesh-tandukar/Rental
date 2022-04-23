@@ -36,8 +36,9 @@
                                     <th>City</th>
                                     <th>Category</th>
                                     <th>Price</th>
-                                    <th>Status</th>
+                                    <th>Current Status</th>
                                     <th>Posted</th>
+                                    <th>Change Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -56,9 +57,10 @@
                                         <td>Rs.{{ $item->price}}-{{ $item->price_unit }}</td> 
                                         <td>{{ $item->status }}</td>
                                         <td>{{ $item->created_at->diffForHumans()}}</td>
+                                        <td></td>
                                         <td>
                                             <a class="btn btn-primary" href="{{ route('admin.property.approve', $item->id) }}">
-                                                Approve
+                                                View
                                             </a>
                                         </td>
                                     </tr>

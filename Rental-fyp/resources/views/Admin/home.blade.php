@@ -73,7 +73,7 @@
 
 
             <!-- Recent Prop -->
-            <div class="col-12">
+            {{-- <div class="col-12">
               <div class="card recent-sales overflow-auto">
 
                 <div class="card-body">
@@ -102,7 +102,7 @@
                   </table>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
         </div>
 

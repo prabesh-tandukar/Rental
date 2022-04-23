@@ -15,15 +15,15 @@
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Happy Home,
-                      <br> Happy Faces!
-                    </p>
-                    <h1 class="intro-title mb-4 ">
-                      <span class="color-b">FIND </span> YOUR
-                      <br> Perfect Home
+                    <h1 class="intro-title mb-4">
+                      <span class="color-b">Happy </span> Home
+                      <br> Happy Faces
                     </h1>
+                    <p class="intro-title-top">Find your place with an immersive photo experience,and the most listings, 
+                      <br> including things you won’t find anywhere else.
+                    </p>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">View on map</span></a>
+                      <a href="#"><span class="price-a">Post Your Property</span></a>
                     </p>
                   </div>
                 </div>
@@ -40,15 +40,15 @@
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Happy Home,
-                      <br> Happy Faces!
-                    </p>
                     <h1 class="intro-title mb-4">
-                      <span class="color-b">Find </span> Your
-                      <br> Perfect Home
+                      <span class="color-b">Happy </span> Home
+                      <br> Happy Faces
                     </h1>
+                    <p class="intro-title-top">Find your place with an immersive photo experience,and the most listings, 
+                      <br> including things you won’t find anywhere else.
+                    </p>
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">View on map</span></a>
+                      <a href="#"><span class="price-a">Post Your Property</span></a>
                     </p>
                   </div>
                 </div>
@@ -65,15 +65,16 @@
               <div class="row">
                 <div class="col-lg-8">
                   <div class="intro-body">
-                    <p class="intro-title-top">Happy Home,
-                      <br> Happy Faces!
-                    </p>
                     <h1 class="intro-title mb-4">
-                      <span class="color-b">Find </span> Your
-                      <br> Perfect Home
+                      <span class="color-b">Happy </span> Home
+                      <br> Happy Faces
                     </h1>
+                    <p class="intro-title-top">Find your place with an immersive photo experience,and the most listings, 
+                      <br> including things you won’t find anywhere else.
+                    </p>
+                   
                     <p class="intro-subtitle intro-price">
-                      <a href="#"><span class="price-a">View on map</span></a>
+                      <a href="#"><span class="price-a">Post Your Property</span></a>
                     </p>
                   </div>
                 </div>

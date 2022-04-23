@@ -15,7 +15,7 @@ class AddStatusInPropertyTable extends Migration
     {
         Schema::table('property', function (Blueprint $table) {
 
-            $table->enum('status', ['Active', 'Pending', 'Reject'])->default('Pending');
+            $table->string('status')->default('pending');
         });
     }
 

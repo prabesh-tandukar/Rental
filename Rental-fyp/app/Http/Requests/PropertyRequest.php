@@ -50,7 +50,8 @@ class PropertyRequest extends FormRequest
             'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
             'latitude' => '',
             'longitude' => '',
-            'user_id' => ''
+            'user_id' => '',
+            'status' => ''
         ];
     }
 }
