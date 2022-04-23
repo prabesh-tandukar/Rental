@@ -43,14 +43,18 @@
                         <!-- Form Element sizes -->
                         <div class="box ">
                                 <div class="box-body">
-                                    <form method="POST" action="{{ route('admin.aboutUs.create') }}" enctype="multipart/form-data" >
+                                    <form method="POST" action="{{ route('admin.aboutUs.edit', $about->id) }}" enctype="multipart/form-data" >
                                         @csrf
+                                        @method('PUT')
                                             <div class="row">
                                             
                                                 <div class="col-xs-12 col-sm-12 col-md-12 pb-3">
                                                     <div class="form-group">
                                                         <strong>Title:</strong>
-                                                        <input type="text" name="title" class="form-control" value={{ $about->title }} placeholder="Enter Title ">
+                                                        <input type="text" name="title" class="form-control" value = "{{ $about->title }}" placeholder="Enter Title ">
+                                                        @if ($errors->has('title'))
+                                                          <div class="alert alert-danger">{{ $errors->first('title') }}</div>
+                                                        @endif  
                                                     </div>
                                                 </div>
                                                 
@@ -58,6 +62,9 @@
                                                     <div class="form-group">
                                                         <strong>Description:</strong>
                                                         <textarea name="description"  class="form-control"   rows="3" >{{ $about->description }}</textarea>
+                                                        @if ($errors->has('description'))
+                                                          <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+                                                        @endif  
                                                     </div>
                                                 </div>
 
@@ -66,7 +73,7 @@
                                                         <strong>Image:</strong>
                                                         <input type="file" name="image"  class="form-control" >
                                                         @if(($about->image!=''))
-                                                        <img src='/uploads/aboutUs_images/{{$about->image}}' width="50"/>
+                                                          <img src="/uploads/aboutUs_images/{{$about->image}}" width="50"/>
                                                         @endif
                                                         @if ($errors->has('image'))
                                                         <div class="alert alert-danger">{{ $errors->first('image') }}</div>

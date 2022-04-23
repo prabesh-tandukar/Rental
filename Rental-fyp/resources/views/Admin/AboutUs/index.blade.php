@@ -5,8 +5,12 @@
 
     
     <div class="container ">
+        
         <div class="row mt-5 ">
-            <div class="col-xs-12 col-md-12 col-sm-12">
+            <div class="col-xs-3 col-md-3 col-sm-3">
+                <x-admin-sidebar/>
+            </div>
+            <div class="col-xs-9 col-md-9 col-sm-9">
                 <div class="box">
                     <div class="box-header  with-border mt-5">
                         <div class="col-xs-4 float-sm-right searchbar">

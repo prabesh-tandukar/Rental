@@ -12,7 +12,7 @@ class About extends Model
     protected $table = 'abouts';
 
     protected $fillable = [
-        'name', 'description', 'image'
+        'title', 'description', 'image'
     ];
 
     public function getAboutUsById($id)

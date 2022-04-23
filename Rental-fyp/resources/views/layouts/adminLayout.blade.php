@@ -34,17 +34,33 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
 
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="container d-flex justify-content-between">
+      <div class="row">
+            <div class="d-flex align-items-center justify-content-between">
       <a href="{{ route('admin.home.index') }}" class="logo d-flex align-items-center">
         <span class="d-none d-lg-block">RentGhar | Admin</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
+      </div>
+
+      <div class="row pt-2">
+        <div class="nav-item">
+            <form method="POST" action="/logout">
+              @csrf
+              <Button type="submit"  class="btn btn-outline-danger"><i class="bi bi-box-arrow-right"></i> Log Out</Button>
+            </form>
+        </div>
+      </div>
+    </div>
+  
+    
+   
 
   </header><!-- End Header -->
 
 
-  <x-admin-sidebar/>
+  {{-- <x-admin-sidebar/> --}}
 
  @yield('content')
  

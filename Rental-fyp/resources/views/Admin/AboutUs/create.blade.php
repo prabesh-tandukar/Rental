@@ -51,6 +51,9 @@
                                                     <div class="form-group">
                                                         <strong>Title:</strong>
                                                         <input type="text" name="title" class="form-control" placeholder="Enter Title">
+                                                        @if ($errors->has('title'))
+                                                          <div class="alert alert-danger">{{ $errors->first('title') }}</div>
+                                                        @endif  
                                                     </div>
                                                 </div>
                                                 
@@ -58,6 +61,9 @@
                                                     <div class="form-group">
                                                         <strong>Description:</strong>
                                                         <textarea name="description" class="form-control" id=""  rows="3" placeholder="Enter Description "></textarea>
+                                                        @if ($errors->has('description'))
+                                                          <div class="alert alert-danger">{{ $errors->first('description') }}</div>
+                                                        @endif  
                                                     </div>
                                                 </div>
 
@@ -65,6 +71,9 @@
                                                     <div class="form-group">
                                                         <strong>Image:</strong>
                                                         <input type="file" name="image" class="form-control" >
+                                                        @if ($errors->has('image'))
+                                                          <div class="alert alert-danger">{{ $errors->first('image') }}</div>
+                                                        @endif  
                                                     </div>
                                                 </div>
                                             </div>         

@@ -116,7 +116,7 @@ class PropertyController extends Controller
                 }
             }
 
-            return redirect()->route('user.property.create')
+            return redirect()->route('user.submission')
                 ->with(array('success' => 'Property added successfully.'));
         }
     }
@@ -184,5 +184,10 @@ class PropertyController extends Controller
     public function catelog()
     {
         return view('Frontend/property');
+    }
+
+    public function submission()
+    {
+        return view('User.Property.submission-success');
     }
 }

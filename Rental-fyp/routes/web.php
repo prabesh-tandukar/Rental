@@ -49,8 +49,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('aboutus/create', [App\Http\Controllers\Admin\AboutUsController::class, 'create'])->name('aboutUs.create');
         Route::post('aboutus/create', [App\Http\Controllers\Admin\AboutUsController::class, 'store'])->name('aboutUs.store');
         Route::get('aboutus/{about}/edit', [App\Http\Controllers\Admin\AboutUsController::class, 'edit'])->name('aboutUs.edit');
-        Route::post('aboutus/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'update'])->name('aboutUs.update');
+        Route::put('aboutus/{about}/edit', [App\Http\Controllers\Admin\AboutUsController::class, 'update'])->name('aboutUs.update');
         Route::delete('aboutus/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('aboutUs.destroy');
+
+        Route::get('contact', [App\Http\Controllers\Admin\ContactController::class, 'index'])->name('contact.index');
     });
 
 
@@ -65,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('submit-property', [App\Http\Controllers\User\PropertyController::class, 'store'])->name('property.store');
         Route::get('property-catalog', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.catalog');
         Route::get('/search', [App\Http\Controllers\User\PropertyController::class, 'search'])->name('search');
+        Route::get('submission', [App\Http\Controllers\User\PropertyController::class, 'submission'])->name('submission');
 
         Route::get('property-detail/{id}', [App\Http\Controllers\User\PropertyDetailController::class, 'index'])->name('property.detail');
 

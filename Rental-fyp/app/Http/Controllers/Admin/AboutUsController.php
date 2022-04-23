@@ -27,17 +27,16 @@ class AboutUsController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
         ]);
 
+        $input = $request->all();
+
         $imageName = '';
         if ($request->hasFile('image')) {
             $imageName = uniqid() . '.' . request()->image->getClientOriginalExtension();
             request()->image->move(public_path('uploads/aboutUs_images'), $imageName);
+            $input['image'] = "$imageName";
         }
 
-        $about = new About();
-        $about->title = $request->title;
-        $about->description = $request->description;
-        $about->image = $imageName;
-        $about->save();
+        About::create($input);
 
         return redirect()->route('admin.aboutUs.index')->with(array('success' => 'About us details filled succesfully.'));
     }
@@ -48,7 +47,7 @@ class AboutUsController extends Controller
         return view('admin.aboutUs.edit', compact('about'));
     }
 
-    public function update(Request $request, About $abouts)
+    public function update(Request $request, About $about)
     {
         $request->validate([
             'title' => 'required',
@@ -56,19 +55,21 @@ class AboutUsController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
         ]);
 
-        $about = new About();
-        $imageName = '';
+        $input = $request->all();
+
+
         if ($request->hasFile('image')) {
             $imageName = uniqid() . '.' . request()->image->getClientOriginalExtension();
             request()->image->move(public_path('uploads/aboutUs_images'), $imageName);
-            $about->image = $imageName;
+            $input['image'] = "$imageName";
         } else {
-            $about->image = $request->image;
+            unset($input['image']);
         }
 
-        $about->title = $request->title;
-        $about->description = $request->description;
-        $about->update();
+        $about->update($input);
+
+        return redirect()->route('admin.aboutUs.index')
+            ->with('success', 'About us updated successfully');
     }
 
     public function destroy(About $about)
