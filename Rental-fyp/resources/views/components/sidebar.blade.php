@@ -1,29 +1,29 @@
 <aside id="sidebar" class="sidebar pt-24">
     <ul class="sidebar-nav" id="sidebar-nav">
       <li class="nav-item">
-        <a class="nav-link " href="{{ route("user.dashboard") }}">
+        <a class="nav-link collapsed " href="{{ route("user.dashboard") }}">
             <i class="bi bi-speedometer"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link " href="{{ route("user.dashboard") }}">
             <i class="bi bi-house"></i>
           <span>Properties</span>
         </a>
-      </li>
+      </li> --}}
 
       <li class="nav-item">
-        <a class="nav-link " href="{{ route("user.tenant.index") }}">
+        <a class="nav-link collapsed" href="{{ route("user.tenant.index") }}">
             <i class="bi bi-house"></i>
           <span>Manage Tenant</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " href="{{ route("user.payment") }}">
+        <a class="nav-link collapsed" href="{{ route("user.payment") }}">
             <i class="bi bi-house"></i>
           <span>Payment</span>
         </a>
