@@ -186,4 +186,6 @@ class PropertyController extends Controller
     {
         return view('User.Property.submission-success');
     }
+
+    
 }

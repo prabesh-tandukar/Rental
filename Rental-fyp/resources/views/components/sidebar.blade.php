@@ -23,7 +23,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " href="{{ route("user.dashboard") }}">
+        <a class="nav-link " href="{{ route("user.payment") }}">
             <i class="bi bi-house"></i>
           <span>Payment</span>
         </a>

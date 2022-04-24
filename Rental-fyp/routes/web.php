@@ -22,6 +22,8 @@ use App\Http\Controllers\Admin\HomeController;
 
 Route::get('/', [App\Http\Controllers\User\HomeController::class, 'index'])->name('homepage');
 
+
+
 // Route::get('/submit-property', [PropertyController::class, 'create'])->name('property.create');
 // Route::post('submit-property', [PropertyController::class, 'store'])->name('property.store');
 
@@ -72,6 +74,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('property/{property}/edit', [App\Http\Controllers\User\PropertyController::class, 'edit'])->name('property.edit');
         Route::put('property/{property}/edit', [App\Http\Controllers\User\PropertyController::class, 'update'])->name('property.update');
         Route::delete('/property/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('property.destroy');
+        
 
         Route::get('property-catalog', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.catalog');
         Route::get('/search', [App\Http\Controllers\User\PropertyController::class, 'search'])->name('search');
@@ -94,6 +97,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('tenant/edit', [App\Http\Controllers\User\TenantController::class, 'edit'])->name('tenant.edit');
         Route::post('tenant/edit', [App\Http\Controllers\User\TenantController::class, 'update'])->name('tenant.update');
         Route::post('tenant/destroy', [App\Http\Controllers\User\TenantController::class, 'destroy'])->name('tenant.destroy');
+
+        Route::get('payment', [App\Http\Controllers\User\PaymentController::class, 'payment'])->name('payment');
+        Route::post('khalti/verify', [App\Http\Controllers\User\PaymentController::class, 'verify'])->name('ajax.khalti.verify_payment');
     });
 });
 
