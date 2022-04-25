@@ -1,0 +1,3 @@
+abbreviations:
+
+HTML, CSS, PHP, DBMS, MVC
