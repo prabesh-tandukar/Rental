@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'nexmo' => [
+        'sms_from' => '+9779864407779',
+        'sms_from' => '+9779808539057',
+        'sms_from' => '+9779803654317',
+    ]
 ];

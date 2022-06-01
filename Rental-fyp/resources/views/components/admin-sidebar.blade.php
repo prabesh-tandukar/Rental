@@ -30,6 +30,12 @@
           <span>Contact Us</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('admin.blog.index') }}">
+            <i class="bi bi-card-text"></i>
+          <span>Blog</span>
+        </a>
+      </li>
 
       {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">

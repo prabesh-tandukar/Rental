@@ -36,6 +36,7 @@
                 <th>Rent Status</th>
                 <th>Created at</th>
                 <th colspan="2">Action</th>
+                <th>Notify For Payment</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -62,6 +63,12 @@
                         <i class="fas fa-trash fa-lg text-danger"></i>
 
                     </button>
+                    <td>
+                        <button style="border: none; background-color:transparent;">
+                            <i class="bi bi-bell-fill"></i>
+                        </button>
+                    </td>
+                    
                     </form>
                 </td>
                 </tr>

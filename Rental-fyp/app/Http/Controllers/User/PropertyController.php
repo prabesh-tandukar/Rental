@@ -76,8 +76,6 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
 
-
-
         $user = auth()->user()->id;
 
         if ($request->method() == 'POST') {
@@ -186,6 +184,4 @@ class PropertyController extends Controller
     {
         return view('User.Property.submission-success');
     }
-
-    
 }

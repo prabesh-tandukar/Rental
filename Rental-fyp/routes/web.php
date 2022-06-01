@@ -59,6 +59,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('aboutus/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('aboutUs.destroy');
 
         Route::get('contact', [App\Http\Controllers\Admin\ContactController::class, 'index'])->name('contact.index');
+
+        Route::get('blog', [App\Http\Controllers\Admin\BlogController::class, 'index'])->name('blog.index');
+        Route::get('blog/create', [App\Http\Controllers\Admin\BlogController::class, 'create'])->name('blog.create');
+        Route::post('blog/create', [App\Http\Controllers\Admin\BlogController::class, 'store'])->name('blog.store');
+        Route::get('blog/{blog}/edit', [App\Http\Controllers\Admin\BlogController::class, 'edit'])->name('blog.edit');
+        Route::put('blog/{blog}/edit', [App\Http\Controllers\Admin\BlogController::class, 'update'])->name('blog.update');
+        Route::delete('blog/{blog}', [App\Http\Controllers\Admin\BlogController::class, 'destroy'])->name('blog.destroy');
     });
 
 
@@ -74,13 +81,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('property/{property}/edit', [App\Http\Controllers\User\PropertyController::class, 'edit'])->name('property.edit');
         Route::put('property/{property}/edit', [App\Http\Controllers\User\PropertyController::class, 'update'])->name('property.update');
         Route::delete('/property/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('property.destroy');
-        
+
 
         Route::get('property-catalog', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.catalog');
         Route::get('/search', [App\Http\Controllers\User\PropertyController::class, 'search'])->name('search');
         Route::get('submission', [App\Http\Controllers\User\PropertyController::class, 'submission'])->name('submission');
 
         Route::get('property-detail/{id}', [App\Http\Controllers\User\PropertyDetailController::class, 'index'])->name('property.detail');
+        Route::get('blog/{id}', [App\Http\Controllers\User\BlogController::class, 'blog'])->name('blog.detail');
 
         Route::get('map', [App\Http\Controllers\User\MapController::class, 'map'])->name('map');
 

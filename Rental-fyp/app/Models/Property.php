@@ -69,4 +69,9 @@ class Property extends Model
         $property =    Property::all();
         return $property;
     }
+
+    public function ReviewData()
+    {
+        return $this->hasMany('App\Models\ReviewRating', 'post_id');
+    }
 }

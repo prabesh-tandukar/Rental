@@ -118,6 +118,10 @@
                         <strong>Road Type:</strong>
                         <span>{{ $property->road_type }}</span>
                       </li> 
+                      <li class="d-flex justify-content-between">
+                        <strong>Estimated price:</strong>
+                        <span>2500</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -277,16 +281,11 @@
                       </div>
                       <div class="col-md-12 mb-1">
                         <div class="form-group">
-                          <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1" placeholder="Email *" required>
-                        </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
                           <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45" rows="8" required></textarea>
                         </div>
                       </div>
                       <div class="col-md-12 mt-3">
-                        <button type="submit" class="btn btn-a">Send Message</button>
+                        <button type="submit" class="btn btn-a">Comment</button>
                       </div>
                     </div>
                   </form>

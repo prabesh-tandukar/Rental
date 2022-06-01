@@ -55,7 +55,7 @@
         <div class="col">
           <label class="form-label" for="property_title">Property title:</label>
           <input type="text" class="form-control" name="property_title" id="property_title" value="{{ old('property_tite') }}" placeholder="Enter Property Title">
-         @error('property_tile')
+         @error('property_title')
             <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
          @enderror
         </div>
