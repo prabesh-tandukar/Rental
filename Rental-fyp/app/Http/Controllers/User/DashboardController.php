@@ -17,10 +17,17 @@ class DashboardController extends Controller
         $rejectProperty = Property::where('status', '=', 'reject')->where('user_id', '=', $currentUser)->count();
         $pendingProperty = Property::where('status', '=', 'pending')->where('user_id', '=', $currentUser)->count();
 
+        $activeProp = Property::where('status', '=', 'active')->where('user_id', '=', $currentUser);
+        $rejectProp = Property::where('status', '=', 'reject')->where('user_id', '=', $currentUser);
+        $pendingProp = Property::where('status', '=', 'pending')->where('user_id', '=', $currentUser)->get();
+
+        $userProperty = Property::where('user_id', '=', $currentUser);
+
         $Property = new Property();
+
 
         $property = $Property->getLatestProperty();
         // dd($activeProperty);
-        return view('User/dashboard', compact('activeProperty', 'rejectProperty', 'pendingProperty', 'property'));
+        return view('User/dashboard', compact('activeProperty', 'rejectProperty', 'pendingProperty', 'property', 'pendingProp', 'userProperty'));
     }
 }

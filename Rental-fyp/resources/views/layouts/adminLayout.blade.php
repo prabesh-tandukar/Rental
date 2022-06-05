@@ -85,9 +85,32 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="<https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js>"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset ("Admin/js/main.js") }}"></script>
+
+  <script>
+    $(function(){
+      $('.toggle-class').change(function() {
+          var status = $(this).prop('checked') == true ? 1 : 2;
+          var showInHome = $(this).prop('checked') == true ? 1 : 2;
+          var paymentmode = $(this).prop('checked') == true ? 1 : 0;
+          var savemethod = $(this).prop('checked') == true ? 2 : 1;
+          var id = $(this).data('id');
+          var url = $(this).data('url');
+          $.ajax({
+              type: "GET",
+              dataType: "json",
+              url: url,
+              data: {'status': status,'mode': paymentmode,'save_method':savemethod,'display':status,'show_in_home':showInHome,'id': id},
+               success: function(data){
+                console.log(data.success)
+              }           
+          });
+      })
+    })
+  </script>
 
 </body>
 

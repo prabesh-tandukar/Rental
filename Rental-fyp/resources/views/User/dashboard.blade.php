@@ -113,7 +113,7 @@
                         <i class="bi bi-house-fill"></i>
                       </div>
                       <div class="ps-3">
-                        <h6>{{ $pendingProperty }}</h6>
+                        <h6>{{ $pendingProperty }}</h6>          
                       </div>
                     </div>
                   </div>
@@ -143,6 +143,57 @@
 
      
     </section>
+
+
+    <div class="pagetitle">
+      <h1>Your Properties</h1>
+    </div>
+
+    <div class="box-body invoice p-3 mb-3">
+      <table id="example2" class="table table-bordered table-hover">
+          <thead>
+              <tr>
+                  <th>Title</th>
+                  <th>Address</th>
+                  <th>Category</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th>Posted</th>
+                  <th width='280px'>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              @foreach ($pendingProp as $item)
+                  <tr> 
+                      <td>{{ $item->property_title}}</td>
+                      <td>{{ $item->address }}</td>
+                      <td>{{ $item->property_category }}</td>
+                      <td>{{ $item->description}}</td>
+                      <td>{{ $item->status }}</td>
+                      <td>{{ $item->created_at->diffForHumans()}}</td>
+                      {{-- <td><a href="{{route('admin.aboutUs.edit',[ $item->id])}}"><i class="bi bi-pencil-square"></i></a></td>
+                      <td><a onClick="return ConfirmDelete();" href="{{route('admin.aboutUs.destroy', $item->id)}}"><i class="bi bi-file-x-fill"></i></a></td> --}}
+
+                      <td>
+                        <form action="{{ route('admin.blog.destroy', $item->id) }}" method="POST">
+                            <a class="btn btn-primary" href="">
+                               Edit
+                            </a>
+                            @csrf   
+                            
+                            @method('DELETE')
+
+                            {{-- <button type="submit" class="btn btn-danger">Delete</button> --}}
+                            <button class="btn btn-danger" type="submit" title="delete" >
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                  </tr>
+              @endforeach
+          </tbody>
+      </table>
+  </div>
 
   </main><!-- End #main -->
 

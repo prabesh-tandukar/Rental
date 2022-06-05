@@ -40,6 +40,8 @@
                                     <th>Posted</th>
                                    
                                     <th>Action</th>
+                                    <th>Approve</th>
+                                    <th>Reject</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,6 +64,12 @@
                                             <a class="btn btn-primary" href="{{ route('admin.property.approve', $item->id) }}">
                                                 View
                                             </a>
+                                        </td>
+                                        <td><a class="btn btn-success"  href="{{ route('admin.property.approved', $item->id) }}" >
+                                            Approve</a>
+                                        </td>
+                                        <td><a class="btn btn-danger"  href="{{ route('admin.property.rejected', $item->id) }}" >
+                                            Reject</a>
                                         </td>
                                     </tr>
                                 @endforeach

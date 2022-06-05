@@ -112,7 +112,7 @@
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Road Size:</strong>
-                        <span>{{ $property->road_size }}</span>
+                        <span>{{ $property->road_size }}{{ $property->road_size_unit }}</span>
                       </li>
                       <li class="d-flex justify-content-between">
                         <strong>Road Type:</strong>

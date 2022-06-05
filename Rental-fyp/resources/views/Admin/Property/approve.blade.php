@@ -270,7 +270,7 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <form method="POST" action="{{ route('admin.property.update', $property->id) }}">
+                <form method="POST" action="{{ route('admin.property.update', $Status->id) }}">
                     @csrf
                     @method('PUT')
                   
@@ -286,9 +286,9 @@
                                       </select> --}}
                                       <select name="status" id="status" class="form-control">
                                         <option value="">Choose....</option>
-                                        <option value="active" {{ ($property->status === 'active') ? 'Selected' : ''}}>Active</option>
-                                        <option value="reject" {{ ($property->status === 'reject') ? 'Selected' : ''}}>Reject</option>   
-                                        <option value="pending" {{ ($property->status === 'pending') ? 'Selected' : ''}}>Pending</option>   
+                                        <option value="active" {{ ($status->status === 'active') ? 'Selected' : ''}}>Active</option>
+                                        <option value="reject" {{ ($status->status === 'reject') ? 'Selected' : ''}}>Reject</option>   
+                                        <option value="pending" {{ ($status->status === 'pending') ? 'Selected' : ''}}>Pending</option>   
 
                                      </select>     
                                       {{-- <input type="radio" id="active" name="status"  value="Active" 

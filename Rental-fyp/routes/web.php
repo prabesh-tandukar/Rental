@@ -49,7 +49,9 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('property', [App\Http\Controllers\Admin\PropertyController::class, 'index'])->name('property.index');
         Route::get('approve/{id}', [App\Http\Controllers\Admin\PropertyController::class, 'approve'])->name('property.approve');
-        Route::put('approve/update/{$id}', [App\Http\Controllers\Admin\PropertyController::class, 'update'])->name('property.update');
+        Route::get('approved/{id}', [App\Http\Controllers\Admin\PropertyController::class, 'approved'])->name('property.approved');
+        Route::get('rejected/{id}', [App\Http\Controllers\Admin\PropertyController::class, 'rejected'])->name('property.rejected');
+        Route::get('property/changesavemethod', [App\Http\Controllers\User\PropertyController::class, 'changeSaveMethod'])->name('property.changemethod');
 
         Route::get('aboutus', [App\Http\Controllers\Admin\AboutUsController::class, 'index'])->name('aboutUs.index');
         Route::get('aboutus/create', [App\Http\Controllers\Admin\AboutUsController::class, 'create'])->name('aboutUs.create');

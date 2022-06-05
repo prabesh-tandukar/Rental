@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Image;
+use App\Models\Status;
 
 class Property extends Model
 {
@@ -49,6 +50,11 @@ class Property extends Model
         return $this->hasMany(Image::class);
     }
 
+    public function status()
+    {
+        return $this->hasOne(Status::class);
+    }
+
 
     public function getLatestProperty($type = false, $limit = 4, $offset = 0)
     {
@@ -63,6 +69,7 @@ class Property extends Model
         $property = Property::where('id', $id)->first();
         return $property;
     }
+
 
     public function getAll()
     {

@@ -11,6 +11,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Models\Property;
 use App\Models\Image;
 use App\Models\User;
+use App\Models\Status;
 use Illuminate\Support\Facades\Auth;
 use Prophecy\Prophet;
 use Storage;
@@ -110,6 +111,11 @@ class PropertyController extends Controller
                 }
             }
 
+            Status::create([
+                'property_id' => $new_property->id,
+                'status' => 'pending'
+            ]);
+
             return redirect()->route('user.submission')
                 ->with(array('success' => 'Property added successfully.'));
         }
@@ -137,7 +143,12 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        return view('User.property.edit', compact('property'));
+        $user = auth()->user();
+        // $amenities = explode(',', $user->amenities);
+        return view('User.property.edit', compact('property'))->with(array(
+            'user' => $user,
+            'amenities' =>  $property->amenities
+        ));
     }
 
     /**
@@ -149,7 +160,6 @@ class PropertyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
@@ -183,5 +193,14 @@ class PropertyController extends Controller
     public function submission()
     {
         return view('User.Property.submission-success');
+    }
+
+    public function changeSaveMethod(Request $request)
+    {
+        $Property = new Property();
+        $prop = $Property->GetPropertyById($request->id);
+        $changeMethod = $request->status;
+        $prop->update(array('status' => $changeMethod));
+        return array('status' => true, 'message' => 'Status Updated Successfully');
     }
 }
