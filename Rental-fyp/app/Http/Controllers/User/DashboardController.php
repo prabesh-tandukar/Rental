@@ -13,12 +13,12 @@ class DashboardController extends Controller
         $currentUser = auth()->user()->id;
 
         // $numOfUser = User::where('is_admin', '=', '0')->count();
-        $activeProperty = Property::where('status', '=', 'active')->where('user_id', '=', $currentUser)->count();
-        $rejectProperty = Property::where('status', '=', 'reject')->where('user_id', '=', $currentUser)->count();
+        $activeProperty = Property::where('status', '=', 'approved')->where('user_id', '=', $currentUser)->count();
+        $rejectProperty = Property::where('status', '=', 'rejected')->where('user_id', '=', $currentUser)->count();
         $pendingProperty = Property::where('status', '=', 'pending')->where('user_id', '=', $currentUser)->count();
 
-        $activeProp = Property::where('status', '=', 'active')->where('user_id', '=', $currentUser);
-        $rejectProp = Property::where('status', '=', 'reject')->where('user_id', '=', $currentUser);
+        $activeProp = Property::where('status', '=', 'approved')->where('user_id', '=', $currentUser);
+        $rejectProp = Property::where('status', '=', 'rejected')->where('user_id', '=', $currentUser);
         $pendingProp = Property::where('status', '=', 'pending')->where('user_id', '=', $currentUser)->get();
 
         $userProperty = Property::where('user_id', '=', $currentUser);

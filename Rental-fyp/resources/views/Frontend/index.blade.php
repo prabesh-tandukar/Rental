@@ -114,7 +114,7 @@
             @foreach ($latestProperty as $property)
               <div class="carousel-item-b swiper-slide">
                 <div class="card-box-a card-shadow">
-                  <div class="img-box-a">
+                  <div class="img-box-a" >
                     <img src="{{ asset('uploads/cover_images/'.$property->cover_image) }}" alt="coverImgae">
                   </div>
                   <div class="card-overlay">
@@ -178,9 +178,9 @@
                 <h2 class="title-a">Latest Blogs</h2>
               </div>
               <div class="title-link">
-                <a href="blog-grid.html">All Blogs
+                {{-- <a href="blog-grid.html">All Blogs
                   <span class="bi bi-chevron-right"></span>
-                </a>
+                </a> --}}
               </div>
             </div>
           </div>
@@ -212,7 +212,7 @@
             </div><!-- End carousel item --> 
             @endforeach
 
-            <div class="carousel-item-c swiper-slide">
+            {{-- <div class="carousel-item-c swiper-slide">
               <div class="card-box-b card-shadow news-box">
                 <div class="img-box-b">
                   <img src="{{ asset("/img/post-3.jpg") }}" alt="" class="img-b img-fluid">
@@ -234,7 +234,7 @@
                   </div>
                 </div>
               </div>
-            </div><!-- End carousel item -->
+            </div><!-- End carousel item --> --}}
 
           </div>
         </div>
@@ -242,32 +242,6 @@
         <div class="news-carousel-pagination carousel-pagination"></div>
       </div>
     </section><!-- End Latest News Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    {{-- <section class="section-testimonials section-t8 nav-arrow-a">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="title-wrap d-flex justify-content-between">
-              <div class="title-box">
-                <h2 class="title-a">Testimonials</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-
- 
-
-          </div>
-        </div>
-
-        <div class="news-carousel-pagination carousel-pagination"></div>
-      </div>
-    </section><!-- End Latest News Section -->
-    </div>
-
-      </div>
-    </section><!-- End Testimonials Section --> --}}
 
   </main><!-- End #main -->
 

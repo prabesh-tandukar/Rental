@@ -176,8 +176,8 @@
 
                       <td>
                         <form action="{{ route('admin.blog.destroy', $item->id) }}" method="POST">
-                            <a class="btn btn-primary" href="">
-                               Edit
+                            <a class="btn btn-primary" href="{{ route('user.property.detail', $item->id) }}">
+                               View
                             </a>
                             @csrf   
                             

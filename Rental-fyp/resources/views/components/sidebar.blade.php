@@ -22,12 +22,12 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route("user.payment") }}">
             <i class="bi bi-house"></i>
           <span>Payment</span>
         </a>
-      </li>
+      </li> --}}
 
       {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">

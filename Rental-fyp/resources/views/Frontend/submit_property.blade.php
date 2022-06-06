@@ -35,10 +35,22 @@
               <div class="col">
                 <select name="city" id="city" class="form-select">
                   <option value="">--Select-City--</option>
+                  
                   <option value="kathmandu">kathmandu</option>
-                  <option value="lalitpur">lalitpur</option>
                   <option value="bhaktapur">bhaktapur</option>
+                  <option value="lalitpur">lalitpur</option>
+                  <option value="chitwan">chitwan</option>
+                  <option value="pokhara">pokhara</option>
+                  <option value="jhapa">jhapa</option>
+                  <option value="ilam">ilam</option>
+                  <option value="dhading">dhading</option>
+                  <option value="nuwakot">nuwakot</option>
+                  <option value="dolakha">dolakha</option>
+                  <option value="sindhupalchok">sindhuupalchok</option>
+                  <option value="manang">manang</option>
+                  <option value="mustang">mustang</option>
                 </select>
+
               </div>
               @error('address')
               <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>    
