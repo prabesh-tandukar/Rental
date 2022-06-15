@@ -270,7 +270,7 @@
 
                 </div>
               </div>
-              <div class="col-md-12 col-lg-8">
+              {{-- <div class="col-md-12 col-lg-8">
                 <div class="property-contact">
                   <form class="form-a">
                     <div class="row">
@@ -290,7 +290,7 @@
                     </div>
                   </form>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@ class PropertyController extends Controller
     {
         $allId = array();
         $images = array();
-        $allProperties = Property::paginate(9);
+        $allProperties = Property::where('status', '=', 'approved')->paginate(9);
 
         foreach ($allProperties as $item) {
 
@@ -168,9 +168,12 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Property $property)
     {
-        //
+     $property->delete();
+     
+     return redirect()->route('user.dashboard')
+            ->with('success', 'Tenant deleted successfully');
     }
 
     public function search(Request $request)

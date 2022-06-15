@@ -21,7 +21,7 @@ class DashboardController extends Controller
         $rejectProp = Property::where('status', '=', 'rejected')->where('user_id', '=', $currentUser);
         $pendingProp = Property::where('status', '=', 'pending')->where('user_id', '=', $currentUser)->get();
 
-        $userProperty = Property::where('user_id', '=', $currentUser);
+        $userProperty = Property::where('user_id', '=', $currentUser)->get();
 
         $Property = new Property();
 

@@ -74,15 +74,35 @@ class TenantController extends Controller
         return redirect()->route('user.tenant.index')->with(array('success' => 'Tenant added successfully.'));
     }
 
-    public function edit()
+    public function edit(Tenant $tenant)
     {
+        return view ('user.tenant.edit', compact('tenant'));
     }
 
-    public function update()
+    public function update(Request $request, Tenant $tenant)
     {
+
+        $request->validate([
+            'tenant_name' => 'required',
+            'phone' => 'required',
+            'joining_date' => 'required',
+            'payment_timing' => 'required',
+            'rent' => 'required',
+        ]);
+
+        $input = $request->all();
+
+        $tenant->update($input);
+
+        return redirect()->route('user.tenant.index')
+        ->with('success', 'Tenant updated successfully');
     }
 
-    public function destroy()
+    public function destroy(Tenant $tenant)
     {
+        $tenant->delete();
+
+        return redirect()->route('user.tenant.index')
+            ->with('success', 'Tenant deleted successfully');
     }
 }

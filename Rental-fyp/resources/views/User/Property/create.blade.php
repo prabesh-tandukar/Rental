@@ -74,6 +74,14 @@
                 <option value="kathmandu">kathmandu</option>
                 <option value="lalitpur">lalitpur</option>
                 <option value="bhaktapur">bhaktapur</option>
+                <option value="pokhara">pokhara</option>
+                <option value="birjung">birjung</option>
+                <option value="lamjung">lamjung</option>
+                <option value="biratnagar">biratnagar</option>
+                <option value="hetauda">hetauda</option>
+                <option value="bhaktapur">bhaktapur</option>
+                <option value="bhaktapur">bhaktapur</option>
+                
               </select>
             </div>
             @error('address')

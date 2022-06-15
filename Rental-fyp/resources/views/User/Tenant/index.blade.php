@@ -36,7 +36,7 @@
                 <th>Rent Status</th>
                 <th>Created at</th>
                 <th colspan="2">Action</th>
-                <th>Notify For Payment</th>
+                <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,24 +50,20 @@
                     <td>{{ $eachTenant->rent}}</td>
                     
                     <td>{{ $eachTenant->created_at}}</td>
-                    <td><a href="{{route('user.tenant.edit',[ $eachTenant->id])}}"><i class="bi bi-pencil-square"></i></a></td>
-                    <td><a onClick="return ConfirmDelete();" href="{{route('user.tenant.destroy', $eachTenant->id)}}"><i class="bi bi-file-x-fill"></i></a></td>
+                    <td>
+                      
                     <form action="{{ route('user.tenant.destroy', $eachTenant->id) }}" method="POST">
-                        <a href="{{ route('user.tenant.edit', $eachTenant->id) }}">
-                            <i class="fas fa-edit  fa-lg"></i>
-                        </a>
+                        {{-- <a  class="btn btn-primary" href="{{ route('user.tenant.edit', $eachTenant->id) }}">
+                            Edit
+                        </a> --}}
 
                     @csrf
-                
-                    <button type="submit" title="delete" style="border: none; background-color:transparent;">
-                        <i class="fas fa-trash fa-lg text-danger"></i>
+                                                
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit" title="delete" >
+                        Delete
 
                     </button>
-                    <td>
-                        <button style="border: none; background-color:transparent;">
-                            <i class="bi bi-bell-fill"></i>
-                        </button>
-                    </td>
                     
                     </form>
                 </td>

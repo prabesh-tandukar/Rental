@@ -47,7 +47,7 @@
                   <!-- Form Element sizes -->
                   <div class="box ">
                     <div class="box-body">
-                      <form method="POST" action="{{ route('user.tenant.create') }}" >
+                      <form method="POST" action="{{ route('user.tenant.edit') }}" >
                         @csrf
                         <div class="row">
                           {{-- <div class="container">
@@ -70,22 +70,22 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 pb-3">
                                 <div class="form-group">
                                     <strong>Tenant Name:</strong>
-                                    <input type="text" name="tenant_name" class="form-control" placeholder="Firstname Lastname">
+                                    <input type="text" name="tenant_name" class="form-control" value="{{ $tenant->tenant_name }}" placeholder="Firstname Lastname">
                                 </div>
                             </div>
 
-                            <input type="text" id="user_id" name="user_id" value='1'>
+                            <input type="text" id="user_id" name="user_id">
                             <div class="col-xs-12 col-sm-12 col-md-12 pb-3">
                                 <div class="form-group">
                                     <strong>Tenant Phone.no:</strong>
-                                    <input type="text" name="phone" class="form-control" placeholder="+977 98XXXXXXXX">
+                                    <input type="text" name="phone" class="form-control" value="{{ $tenant->phone }}" placeholder="+977 98XXXXXXXX">
                                 </div>
                             </div>
       
                             <div class="col-xs-12 col-sm-12 col-md-12 pb-3">
                               <div class="form-group">
                                   <strong>Tenant Joining Date:</strong>
-                                  <input type="date" name="joining_date" class="form-control">
+                                  <input type="date" name="joining_date" class="form-control" value="{{ $tenant->joining_date }}">
                               </div>
                             </div>
     
@@ -93,13 +93,13 @@
                             <label for="Save Method"> <strong>Rent Status:</strong>  </label>
                              <div class="form-group clearfix">
                                 <div class="icheck-primary d-inline">
-                                  <input type="radio" id="rentStatus1" name="rent"  value="paid" checked="checked">
+                                  <input type="radio" id="rentStatus1" name="rent"  value="paid" checked="checked" {{ $tenant->rent == 'paid' ? 'checked' : '' }}>
                                   <label for="rentStatus1">
                                   Paid
                                   </label>
                                 </div>
                                 <div class="icheck-primary d-inline">
-                                  <input type="radio" name="rent"  value="unpaid" id="rentStatus2" >
+                                  <input type="radio" name="rent"  value="unpaid" id="rentStatus2" {{ $tenant->rent == 'unpaid' ? 'checked' : '' }}>
                                   <label for="rentStatus2">
                                   Unpaid
                                   </label>
@@ -116,13 +116,13 @@
                             <label for="Save Method"> <strong>Payment Method:</strong>  </label>
                              <div class="form-group clearfix">
                                 <div class="icheck-primary d-inline">
-                                  <input type="radio" id="paymentStyle1" name="payment_timing"  value="monthly" checked="checked">
+                                  <input type="radio" id="paymentStyle1" name="payment_timing"  value="monthly" checked="checked" {{ $tenant->payment_timing == 'monthly' ? 'checked' : '' }}>
                                   <label for="paymentStyle1">
                                   Monthly
                                   </label>
                                 </div>
                                 <div class="icheck-primary d-inline">
-                                  <input type="radio" name="payment_timing"  value="yearly" id="paymentStyle2" >
+                                  <input type="radio" name="payment_timing"  value="yearly" id="paymentStyle2" {{ $tenant->payment_timing == 'yearly' ? 'checked' : '' }}>
                                   <label for="paymentStyle2">
                                   Yearly
                                   </label>

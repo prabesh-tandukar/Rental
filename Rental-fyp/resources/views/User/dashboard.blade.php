@@ -163,7 +163,7 @@
               </tr>
           </thead>
           <tbody>
-              @foreach ($pendingProp as $item)
+              @foreach ($userProperty as $item)
                   <tr> 
                       <td>{{ $item->property_title}}</td>
                       <td>{{ $item->address }}</td>
@@ -175,7 +175,7 @@
                       <td><a onClick="return ConfirmDelete();" href="{{route('admin.aboutUs.destroy', $item->id)}}"><i class="bi bi-file-x-fill"></i></a></td> --}}
 
                       <td>
-                        <form action="{{ route('admin.blog.destroy', $item->id) }}" method="POST">
+                        <form action="{{ route('user.property.destroy', $item->id) }}" method="POST">
                             <a class="btn btn-primary" href="{{ route('user.property.detail', $item->id) }}">
                                View
                             </a>

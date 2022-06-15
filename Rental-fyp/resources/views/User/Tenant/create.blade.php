@@ -74,7 +74,7 @@
                                 </div>
                             </div>
 
-                            <input type="text" id="user_id" name="user_id" value='1'>
+                            <input type="text" id="user_id" name="user_id">
                             <div class="col-xs-12 col-sm-12 col-md-12 pb-3">
                                 <div class="form-group">
                                     <strong>Tenant Phone.no:</strong>

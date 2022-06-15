@@ -52,7 +52,7 @@ class BlogController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+            'image' => '',
         ]);
 
         $input = $request->all();

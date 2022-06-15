@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('property/create', [App\Http\Controllers\User\PropertyController::class, 'store'])->name('property.store');
         Route::get('property/{property}/edit', [App\Http\Controllers\User\PropertyController::class, 'edit'])->name('property.edit');
         Route::put('property/{property}/edit', [App\Http\Controllers\User\PropertyController::class, 'update'])->name('property.update');
-        Route::delete('/property/{about}', [App\Http\Controllers\Admin\AboutUsController::class, 'destroy'])->name('property.destroy');
+        Route::delete('/property/{property}', [App\Http\Controllers\User\PropertyController::class, 'destroy'])->name('property.destroy');
 
 
         Route::get('property-catalog', [App\Http\Controllers\User\PropertyController::class, 'index'])->name('property.catalog');
@@ -104,12 +104,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('tenant', [App\Http\Controllers\User\TenantController::class, 'index'])->name('tenant.index');
         Route::get('tenant/create', [App\Http\Controllers\User\TenantController::class, 'create'])->name('tenant.create');
         Route::post('tenant/create', [App\Http\Controllers\User\TenantController::class, 'store'])->name('tenant.store');
-        Route::get('tenant/edit', [App\Http\Controllers\User\TenantController::class, 'edit'])->name('tenant.edit');
-        Route::post('tenant/edit', [App\Http\Controllers\User\TenantController::class, 'update'])->name('tenant.update');
-        Route::post('tenant/destroy', [App\Http\Controllers\User\TenantController::class, 'destroy'])->name('tenant.destroy');
+        Route::get('tenant/{tenant}/edit', [App\Http\Controllers\User\TenantController::class, 'edit'])->name('tenant.edit');
+        Route::put('tenant/{tenant}/edit', [App\Http\Controllers\User\TenantController::class, 'update'])->name('tenant.update');
+        Route::delete('tenant/{tenant}', [App\Http\Controllers\User\TenantController::class, 'destroy'])->name('tenant.destroy');
 
-        Route::get('payment', [App\Http\Controllers\User\PaymentController::class, 'payment'])->name('payment');
-        Route::post('khalti/verify', [App\Http\Controllers\User\PaymentController::class, 'verify'])->name('ajax.khalti.verify_payment');
+        // Route::get('payment', [App\Http\Controllers\User\PaymentController::class, 'payment'])->name('payment');
+        // Route::post('khalti/verify', [App\Http\Controllers\User\PaymentController::class, 'verify'])->name('ajax.khalti.verify_payment');
     });
 });
 

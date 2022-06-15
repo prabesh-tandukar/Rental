@@ -15,7 +15,8 @@ class HomeController extends Controller
 
         $Property = new Property();
 
-        $latestProperty = $Property->getLatestProperty();
+        // $activeProperty = Property::where('status', '=', 'approved')->where('user_id', '=', $currentUser)->count();
+        $latestProperty = $Property->getLatestProperty()->where('status', '=', 'approved');
 
         $Blog = new Blog();
         $latestBlog = $Blog->getLatestBlog();

@@ -269,56 +269,7 @@
 
                 </div>
               </div>
-              <div class="col-md-4">
-                <form method="POST" action="{{ route('admin.property.update', $Status->id) }}">
-                    @csrf
-                    @method('PUT')
-                  
-                    <label for="status" class="py-3"> <strong class="text-xl">Approve:</strong> </label>
-                                <div class="form-group clearfix ">
-                                    <div class="icheck-primary d-inline">
-
-                                      {{-- <select name="city" id="city" class="form-select">
-                                        <option value="">--Select-City--</option>
-                                        <option value="kathmandu">kathmandu</option>
-                                        <option value="lalitpur">lalitpur</option>
-                                        <option value="bhaktapur">bhaktapur</option>
-                                      </select> --}}
-                                      <select name="status" id="status" class="form-control">
-                                        <option value="">Choose....</option>
-                                        <option value="active" {{ ($status->status === 'active') ? 'Selected' : ''}}>Active</option>
-                                        <option value="reject" {{ ($status->status === 'reject') ? 'Selected' : ''}}>Reject</option>   
-                                        <option value="pending" {{ ($status->status === 'pending') ? 'Selected' : ''}}>Pending</option>   
-
-                                     </select>     
-                                      {{-- <input type="radio" id="active" name="status"  value="Active" 
-                                        {{ $property->status == 'Active' ? 'checked' : '' }} > 
-                                      <label for="active">
-                                      Approve
-                                      </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                      <input type="radio" name="status"  value="Reject" id="reject"  {{ $property->status == 'Reject' ? 'checked' : '' }} >
-                                      <label for="reject">
-                                      Reject
-                                      </label>
-                                    </div>
-                                    <div class="icheck-primary d-inline">
-                                        <input type="radio" name="status"  value="Pending" id="pending" {{ $property->status == 'Pending' ? 'checked' : '' }}  >
-                                        <label for="pending">
-                                        Pending
-                                        </label>
-                                      </div> --}}
-                                      @if ($errors->has('status'))
-                                        <div class="alert alert-danger">{{ $errors->first('status') }}</div>
-                                    @endif
-                                      <div class="my-3">
-                                        <button type="submit" class="btn btn-outline-primary">Submit</button>
-                                      </div>
-                              </div>
-                              
-                </form>
-              </div>
+             
 
             </div>
 

@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         $numOfUser = User::where('is_admin', '=', '0')->count();
-        $numOfProperty = Property::where('status', '=', 'Active')->count();
+        $numOfProperty = Property::where('status', '=', 'approved')->count();
 
         return view('admin/home', compact('numOfUser', 'numOfProperty'));
     }
